@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/blake2/src/blake2-impl.h
+stdint.h
+-
+string.h
+-
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/blake2/src/blake2.h
+stddef.h
+-
+stdint.h
+-
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/blake2/src/blake2b-ref.c
+stdint.h
+-
+string.h
+-
+stdio.h
+-
+blake2.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/blake2/src/blake2.h
+blake2-impl.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/blake2/src/blake2-impl.h
+string.h
+-
+blake2-kat.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/blake2/src/blake2-kat.h
+

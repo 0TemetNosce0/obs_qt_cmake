@@ -1,0 +1,262 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/avcodec.h
+errno.h
+-
+libavutil/samplefmt.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/libavutil/samplefmt.h
+libavutil/attributes.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/libavutil/attributes.h
+libavutil/avutil.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/libavutil/avutil.h
+libavutil/buffer.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/libavutil/buffer.h
+libavutil/cpu.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/libavutil/cpu.h
+libavutil/channel_layout.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/libavutil/channel_layout.h
+libavutil/dict.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/libavutil/dict.h
+libavutil/frame.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/libavutil/frame.h
+libavutil/log.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/libavutil/log.h
+libavutil/pixfmt.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/libavutil/pixfmt.h
+libavutil/rational.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/libavutil/rational.h
+version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/version.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/version.h
+libavutil/version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/libavutil/version.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/avformat.h
+time.h
+-
+stdio.h
+-
+libavcodec/avcodec.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/libavcodec/avcodec.h
+libavutil/dict.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/libavutil/dict.h
+libavutil/log.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/libavutil/log.h
+avio.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/avio.h
+libavformat/version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/libavformat/version.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/avio.h
+stdint.h
+-
+libavutil/common.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/libavutil/common.h
+libavutil/dict.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/libavutil/dict.h
+libavutil/log.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/libavutil/log.h
+libavformat/version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/libavformat/version.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/version.h
+libavutil/version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/libavutil/version.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/attributes.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/avconfig.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/avutil.h
+common.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/common.h
+error.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/error.h
+rational.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/rational.h
+version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/version.h
+macros.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/macros.h
+mathematics.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/mathematics.h
+log.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/log.h
+pixfmt.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/pixfmt.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/buffer.h
+stdint.h
+-
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/channel_layout.h
+stdint.h
+-
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/common.h
+errno.h
+-
+inttypes.h
+-
+limits.h
+-
+math.h
+-
+stdint.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+attributes.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/attributes.h
+macros.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/macros.h
+version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/version.h
+libavutil/avconfig.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/libavutil/avconfig.h
+config.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/config.h
+intmath.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/intmath.h
+common.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/common.h
+mem.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/mem.h
+internal.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/internal.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/cpu.h
+attributes.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/attributes.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/dict.h
+stdint.h
+-
+version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/version.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/error.h
+errno.h
+-
+stddef.h
+-
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/frame.h
+stdint.h
+-
+avutil.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/avutil.h
+buffer.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/buffer.h
+dict.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/dict.h
+rational.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/rational.h
+samplefmt.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/samplefmt.h
+pixfmt.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/pixfmt.h
+version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/version.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/intfloat.h
+stdint.h
+-
+attributes.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/attributes.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/log.h
+stdarg.h
+-
+avutil.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/avutil.h
+attributes.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/attributes.h
+version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/version.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/macros.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/mathematics.h
+stdint.h
+-
+math.h
+-
+attributes.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/attributes.h
+rational.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/rational.h
+intfloat.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/intfloat.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/mem.h
+limits.h
+-
+stdint.h
+-
+attributes.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/attributes.h
+error.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/error.h
+avutil.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/avutil.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/pixfmt.h
+libavutil/avconfig.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/libavutil/avconfig.h
+version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/version.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/rational.h
+stdint.h
+-
+limits.h
+-
+attributes.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/attributes.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/samplefmt.h
+stdint.h
+-
+avutil.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/avutil.h
+attributes.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/attributes.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/version.h
+macros.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/macros.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/plugins/obs-ffmpeg/ffmpeg-mux/ffmpeg-mux.c
+io.h
+-
+fcntl.h
+-
+windows.h
+-
+stdbool.h
+-
+stdio.h
+-
+stdlib.h
+-
+ffmpeg-mux.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/plugins/obs-ffmpeg/ffmpeg-mux/ffmpeg-mux.h
+libavformat/avformat.h
+-
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/plugins/obs-ffmpeg/ffmpeg-mux/ffmpeg-mux.h
+stdint.h
+-
+

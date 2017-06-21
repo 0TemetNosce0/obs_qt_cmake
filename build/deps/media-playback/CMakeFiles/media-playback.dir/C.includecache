@@ -1,0 +1,656 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/avcodec.h
+errno.h
+-
+libavutil/samplefmt.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/libavutil/samplefmt.h
+libavutil/attributes.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/libavutil/attributes.h
+libavutil/avutil.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/libavutil/avutil.h
+libavutil/buffer.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/libavutil/buffer.h
+libavutil/cpu.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/libavutil/cpu.h
+libavutil/channel_layout.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/libavutil/channel_layout.h
+libavutil/dict.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/libavutil/dict.h
+libavutil/frame.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/libavutil/frame.h
+libavutil/log.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/libavutil/log.h
+libavutil/pixfmt.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/libavutil/pixfmt.h
+libavutil/rational.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/libavutil/rational.h
+version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/version.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/version.h
+libavutil/version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavcodec/libavutil/version.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavdevice/avdevice.h
+version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavdevice/version.h
+libavutil/log.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavdevice/libavutil/log.h
+libavutil/opt.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavdevice/libavutil/opt.h
+libavutil/dict.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavdevice/libavutil/dict.h
+libavformat/avformat.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavdevice/libavformat/avformat.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavdevice/version.h
+libavutil/version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavdevice/libavutil/version.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/avformat.h
+time.h
+-
+stdio.h
+-
+libavcodec/avcodec.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/libavcodec/avcodec.h
+libavutil/dict.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/libavutil/dict.h
+libavutil/log.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/libavutil/log.h
+avio.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/avio.h
+libavformat/version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/libavformat/version.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/avio.h
+stdint.h
+-
+libavutil/common.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/libavutil/common.h
+libavutil/dict.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/libavutil/dict.h
+libavutil/log.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/libavutil/log.h
+libavformat/version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/libavformat/version.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/version.h
+libavutil/version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavformat/libavutil/version.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/attributes.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/avconfig.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/avutil.h
+common.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/common.h
+error.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/error.h
+rational.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/rational.h
+version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/version.h
+macros.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/macros.h
+mathematics.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/mathematics.h
+log.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/log.h
+pixfmt.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/pixfmt.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/buffer.h
+stdint.h
+-
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/channel_layout.h
+stdint.h
+-
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/common.h
+errno.h
+-
+inttypes.h
+-
+limits.h
+-
+math.h
+-
+stdint.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+attributes.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/attributes.h
+macros.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/macros.h
+version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/version.h
+libavutil/avconfig.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/libavutil/avconfig.h
+config.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/config.h
+intmath.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/intmath.h
+common.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/common.h
+mem.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/mem.h
+internal.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/internal.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/cpu.h
+attributes.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/attributes.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/dict.h
+stdint.h
+-
+version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/version.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/error.h
+errno.h
+-
+stddef.h
+-
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/frame.h
+stdint.h
+-
+avutil.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/avutil.h
+buffer.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/buffer.h
+dict.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/dict.h
+rational.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/rational.h
+samplefmt.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/samplefmt.h
+pixfmt.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/pixfmt.h
+version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/version.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/imgutils.h
+avutil.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/avutil.h
+pixdesc.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/pixdesc.h
+rational.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/rational.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/intfloat.h
+stdint.h
+-
+attributes.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/attributes.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/log.h
+stdarg.h
+-
+avutil.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/avutil.h
+attributes.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/attributes.h
+version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/version.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/macros.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/mathematics.h
+stdint.h
+-
+math.h
+-
+attributes.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/attributes.h
+rational.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/rational.h
+intfloat.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/intfloat.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/mem.h
+limits.h
+-
+stdint.h
+-
+attributes.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/attributes.h
+error.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/error.h
+avutil.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/avutil.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/opt.h
+rational.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/rational.h
+avutil.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/avutil.h
+dict.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/dict.h
+log.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/log.h
+pixfmt.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/pixfmt.h
+samplefmt.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/samplefmt.h
+version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/version.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/pixdesc.h
+inttypes.h
+-
+attributes.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/attributes.h
+pixfmt.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/pixfmt.h
+version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/version.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/pixfmt.h
+libavutil/avconfig.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/libavutil/avconfig.h
+version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/version.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/rational.h
+stdint.h
+-
+limits.h
+-
+attributes.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/attributes.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/samplefmt.h
+stdint.h
+-
+avutil.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/avutil.h
+attributes.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/attributes.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/version.h
+macros.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libavutil/macros.h
+
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libswscale/swscale.h
+stdint.h
+-
+libavutil/avutil.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libswscale/libavutil/avutil.h
+libavutil/log.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libswscale/libavutil/log.h
+libavutil/pixfmt.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libswscale/libavutil/pixfmt.h
+version.h
+F:/OBS/obs_qt _cmke/dependencies2015/win32/include/libswscale/version.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/media-playback/media-playback/closest-format.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/media-playback/media-playback/decode.c
+decode.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/media-playback/media-playback/decode.h
+media.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/media-playback/media-playback/media.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/media-playback/media-playback/decode.h
+util/circlebuf.h
+-
+libavformat/avformat.h
+-
+libavcodec/avcodec.h
+-
+util/threading.h
+-
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/media-playback/media-playback/media.c
+obs.h
+-
+util/platform.h
+-
+assert.h
+-
+media.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/media-playback/media-playback/media.h
+closest-format.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/media-playback/media-playback/closest-format.h
+libavdevice/avdevice.h
+-
+libavutil/imgutils.h
+-
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/media-playback/media-playback/media.h
+obs.h
+-
+decode.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/media-playback/media-playback/decode.h
+libavformat/avformat.h
+-
+libavcodec/avcodec.h
+-
+libswscale/swscale.h
+-
+util/threading.h
+-
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/w32-pthreads/config.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/w32-pthreads/need_errno.h
+winsock.h
+-
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/w32-pthreads/pthread.h
+windows.h
+-
+config.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/w32-pthreads/config.h
+time.h
+-
+signal.h
+-
+limits.h
+-
+need_errno.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/w32-pthreads/need_errno.h
+errno.h
+-
+sched.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/w32-pthreads/sched.h
+sys/types.h
+-
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/w32-pthreads/sched.h
+need_errno.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/w32-pthreads/need_errno.h
+errno.h
+-
+sys/types.h
+-
+time.h
+-
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/callback/calldata.h
+string.h
+-
+../util/c99defs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/c99defs.h
+../util/bmem.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/bmem.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/callback/proc.h
+../util/c99defs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/c99defs.h
+calldata.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/callback/calldata.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/callback/signal.h
+../util/c99defs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/c99defs.h
+calldata.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/callback/calldata.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/graphics/graphics.h
+../util/bmem.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/bmem.h
+input.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/graphics/input.h
+objc/objc-runtime.h
+-
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/graphics/input.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/graphics/math-defs.h
+../util/c99defs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/c99defs.h
+math.h
+-
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/graphics/vec2.h
+../util/c99defs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/c99defs.h
+math.h
+-
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/graphics/vec3.h
+math-defs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/graphics/math-defs.h
+vec4.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/graphics/vec4.h
+xmmintrin.h
+-
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/graphics/vec4.h
+math-defs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/graphics/math-defs.h
+xmmintrin.h
+-
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/media-io/audio-io.h
+media-io-defs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/media-io/media-io-defs.h
+../util/c99defs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/c99defs.h
+../util/util_uint128.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/util_uint128.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/media-io/frame-rate.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/media-io/media-io-defs.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/media-io/video-io.h
+media-io-defs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/media-io/media-io-defs.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-audio-controls.h
+obs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-config.h
+obsconfig.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obsconfig.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-data.h
+util/c99defs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/c99defs.h
+media-io/frame-rate.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/media-io/frame-rate.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-defs.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-encoder.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-hotkey.h
+obs-hotkeys.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-hotkeys.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-hotkeys.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-interaction.h
+util/c99defs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/c99defs.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-output.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-properties.h
+util/c99defs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/c99defs.h
+obs-data.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-data.h
+media-io/frame-rate.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/media-io/frame-rate.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-service.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-source.h
+obs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-ui.h
+util/c99defs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/c99defs.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs.h
+util/c99defs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/c99defs.h
+util/bmem.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/bmem.h
+util/profiler.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/profiler.h
+util/text-lookup.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/text-lookup.h
+graphics/graphics.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/graphics/graphics.h
+graphics/vec2.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/graphics/vec2.h
+graphics/vec3.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/graphics/vec3.h
+media-io/audio-io.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/media-io/audio-io.h
+media-io/video-io.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/media-io/video-io.h
+callback/signal.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/callback/signal.h
+callback/proc.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/callback/proc.h
+obs-config.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-config.h
+obs-defs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-defs.h
+obs-data.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-data.h
+obs-ui.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-ui.h
+obs-properties.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-properties.h
+obs-interaction.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-interaction.h
+obs-source.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-source.h
+obs-encoder.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-encoder.h
+obs-output.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-output.h
+obs-service.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-service.h
+obs-audio-controls.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-audio-controls.h
+obs-hotkey.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/obs-hotkey.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/base.h
+stdarg.h
+-
+c99defs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/c99defs.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/bmem.h
+c99defs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/c99defs.h
+base.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/base.h
+wchar.h
+-
+string.h
+-
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/c99defs.h
+vc/vc_stdint.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/vc/vc_stdint.h
+vc/vc_stdbool.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/vc/vc_stdbool.h
+stddef.h
+-
+stdint.h
+-
+stdbool.h
+-
+sys/types.h
+-
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/circlebuf.h
+c99defs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/c99defs.h
+string.h
+-
+stdlib.h
+-
+assert.h
+-
+bmem.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/bmem.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/darray.h
+c99defs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/c99defs.h
+string.h
+-
+stdlib.h
+-
+assert.h
+-
+bmem.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/bmem.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/platform.h
+stdio.h
+-
+wchar.h
+-
+sys/types.h
+-
+c99defs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/c99defs.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/profiler.h
+base.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/base.h
+darray.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/darray.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/text-lookup.h
+c99defs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/c99defs.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/threading-posix.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/threading-windows.h
+intrin.h
+-
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/threading.h
+c99defs.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/c99defs.h
+../../deps/w32-pthreads/pthread.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/deps/w32-pthreads/pthread.h
+errno.h
+-
+pthread.h
+-
+threading-windows.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/threading-windows.h
+threading-posix.h
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/threading-posix.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/util_uint128.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/vc/vc_stdbool.h
+
+F:/obs_git/obs_qt_cmake/obs_qt_cmake/obs-studio/libobs/util/vc/vc_stdint.h
+stddef.h
+-
+
