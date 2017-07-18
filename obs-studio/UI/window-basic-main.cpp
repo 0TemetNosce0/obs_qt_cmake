@@ -2993,7 +2993,7 @@ void OBSBasic::closeEvent(QCloseEvent *event)
 	 * sources, etc) so that all references are released before shutdown */
 	ClearSceneData();
 
-	App()->quit();
+	App()->quit();//TODO加上在录制的时候，关闭窗口会报错。
 }
 
 void OBSBasic::changeEvent(QEvent *event)
