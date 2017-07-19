@@ -1837,7 +1837,7 @@ int main(int argc, char *argv[])
 
 #ifdef _WIN32
 	load_debug_privilege();
-	base_set_crash_handler(main_crash_handler, nullptr);
+    base_set_crash_handler(main_crash_handler, nullptr);//设置异常处理，不设置有个默认的，不需要则填nullptr
 #endif
 
 	base_get_log_handler(&def_log_handler, nullptr);
