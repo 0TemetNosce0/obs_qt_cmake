@@ -467,9 +467,9 @@ static inline void handle_exception(struct exception_handler_data *data,
 		return;
 
 	data->exception = exception;
-	data->process = GetCurrentProcess();
+    data->process = GetCurrentProcess();//获取当前进程的一个句柄
 	data->main_trace.context = *exception->ContextRecord;
-	GetSystemTime(&data->time_info);
+    GetSystemTime(&data->time_info);//当前系统时间
 
 	init_sym_info(data);
 	init_version_info(data);
@@ -481,30 +481,30 @@ static inline void handle_exception(struct exception_handler_data *data,
 	write_thread_traces(data);
 	write_module_list(data);
 }
-
+//异常处理回调
 static LONG CALLBACK exception_handler(PEXCEPTION_POINTERS exception)
 {
-	struct exception_handler_data data = {0};
+    struct exception_handler_data data = {0};//初始化
 	static bool inside_handler = false;
 
 	/* don't use if a debugger is present */
-	if (IsDebuggerPresent())
-		return EXCEPTION_CONTINUE_SEARCH;
+    if (IsDebuggerPresent())//确定调用进程是否由用户模式的调试器调试
+        return EXCEPTION_CONTINUE_SEARCH;//不能处理该异常，让别人处理它吧
 
 	if (inside_handler)
 		return EXCEPTION_CONTINUE_SEARCH;
 
 	inside_handler = true;
 
-	handle_exception(&data, exception);
-	bcrash(data.str.array);
+    handle_exception(&data, exception);//异常信息写入到data
+    bcrash(data.str.array);// crash处理
 	exception_handler_data_free(&data);
 
 	inside_handler = false;
 
 	return EXCEPTION_CONTINUE_SEARCH;
 }
-
+//初始化cransh处理
 void initialize_crash_handler(void)
 {
 	static bool initialized = false;

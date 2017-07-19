@@ -78,7 +78,8 @@ NORETURN static void def_crash_handler(const char *format, va_list args,
 }
 
 static log_handler_t log_handler = def_log_handler;
-static void (*crash_handler)(const char *, va_list, void *) = def_crash_handler;
+//默认crash_handler初始值为def_crash_handler
+static void (*crash_handler)(const char *, va_list, void *) = def_crash_handler;//函数名赋值
 
 void base_get_log_handler(log_handler_t *handler, void **param)
 {
@@ -96,7 +97,7 @@ void base_set_log_handler(log_handler_t handler, void *param)
 	log_param   = param;
 	log_handler = handler;
 }
-
+//设置cransh处理，handler处理函数，param：参数
 void base_set_crash_handler(
 		void (*handler)(const char *, va_list, void *),
 		void *param)
