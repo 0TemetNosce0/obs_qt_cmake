@@ -25,7 +25,7 @@
 #include "darray.h"
 #include "dstr.h"
 #include "windows/win-version.h"
-
+//#pragma comment(lib, "./w32-pthreads.lib")//test
 #include "../../deps/w32-pthreads/pthread.h"
 
 static bool have_clockfreq = false;

@@ -47,7 +47,7 @@ if(NOT Qt5Widgets_FOUND)
 	endif()
 endif()
 
-
+#添加include目录
 include_directories(${FFMPEG_INCLUDE_DIRS})
 include_directories(SYSTEM "obs-frontend-api")
 include_directories(SYSTEM "${CMAKE_SOURCE_DIR}/libobs")
@@ -260,7 +260,7 @@ if(WIN32)
 		PROPERTIES
 			OUTPUT_NAME "obs${_output_suffix}")
 endif()
-
+#库连接
 target_link_libraries(obs
 	libobs
 	Qt5::Widgets
