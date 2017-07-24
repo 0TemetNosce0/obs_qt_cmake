@@ -1,5 +1,5 @@
 project(libobs)
-
+#find_package可以被用来在系统中自动查找配置构建工程所需的程序库
 find_package(Threads REQUIRED)
 
 find_package(FFmpeg REQUIRED
