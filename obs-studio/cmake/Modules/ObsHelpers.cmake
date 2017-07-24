@@ -409,7 +409,9 @@ function(install_obs_core target)
 
 	install_obs_pdb(CORE ${target})
 endfunction()
-
+#function(<name>[arg1 [arg2 [arg3 ...]]])
+#...
+#endfunction(<name>)
 function(install_obs_bin target mode)
 	foreach(bin ${ARGN})
 		if(APPLE)
