@@ -89,19 +89,20 @@ if (MSVC)
    
    # Disabled by OBS, options already set by top level CMakeLists
    if (FALSE)
-      set(CMAKE_C_FLAGS_RELEASE "/MT")
-      set(CMAKE_C_FLAGS_DEBUG "/MTd")
+      set(CMAKE_C_FLAGS_RELEASE "/MT") #运行库/MT静态
+      set(CMAKE_C_FLAGS_DEBUG "/MTd")  #运行库静态调试
    endif()
    
 endif()
 
 if (NOT WIN32 AND NOT APPLE)
-   set(CMAKE_C_FLAGS "-fPIC")
+   set(CMAKE_C_FLAGS "-fPIC") #gcc编译参数
 endif()
 
    
 
 # Check for the int-type includes
+#check：sys/types.h存在，HAVE_SYS_TYPES_H置为1
 check_include_files (sys/types.h HAVE_SYS_TYPES_H)
 check_include_files (inttypes.h HAVE_INTTYPES_H)
 check_include_files (stdint.h HAVE_STDINT_H)
