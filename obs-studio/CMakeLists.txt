@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.12)
 
 project(obs-studio)
-
+#如果用户没有定义过BUILD_CAPTIONS,那我BUILD_CAPTIONS的默认值就是FALSE,如果用户在命令行显示改变过BUILD_CAPTIONS的值比如为TRUE,那么在脚本中BUILD_CAPTIONS的值就是TURE。
 option(BUILD_CAPTIONS "Build captions" FALSE)
 
 if(WIN32)
@@ -19,8 +19,9 @@ if(WIN32)
 	endif()
 endif()
 
+#CMAKE_MODULE_PATH设置模块路径
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
-
+#ObsHelpers.cmake,加载模块
 include(ObsHelpers)
 include(ObsCpack)
 include(GNUInstallDirs)
@@ -87,10 +88,12 @@ endif()
 if(APPLE)
 	set(CMAKE_MACOSX_RPATH TRUE)
 	set(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
+        #list操作，APPEND添加 "@loader_path/" "@executable_path/"添加到CMAKE_INSTALL_RPATH
 	list(APPEND CMAKE_INSTALL_RPATH "@loader_path/" "@executable_path/")
 elseif(UNIX)
 	option(USE_XDG "Utilize XDG Base Directory Specification" ON)
 	if(USE_XDG)
+            #添加编译参数
 		add_definitions(-DUSE_XDG)
 	endif()
 
