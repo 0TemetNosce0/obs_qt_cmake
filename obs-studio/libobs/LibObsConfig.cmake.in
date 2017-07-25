@@ -19,6 +19,7 @@ get_filename_component(LIBOBS_INCLUDE_DIRS "${LIBOBS_INCLUDE_DIRS}" ABSOLUTE)
 get_filename_component(LIBOBS_PLUGIN_DATA_DESTINATION "${LIBOBS_PLUGIN_DATA_DESTINATION}" ABSOLUTE)
 
 if(NOT TARGET libobs)
+message("1111111111111LibObsTarget")
 	include("${CMAKE_CURRENT_LIST_DIR}/LibObsTarget.cmake")
 endif()
 

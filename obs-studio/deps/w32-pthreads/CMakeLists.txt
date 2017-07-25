@@ -13,7 +13,7 @@ set(w32-pthreads_HEADERS
         sched.h
         semaphore.h)
 
-add_library(w32-pthreads SHARED
+add_library(w32-pthreads STATIC
         ${w32-pthreads_SOURCES}
         ${w32-pthreads_HEADERS})
 target_compile_definitions(w32-pthreads
@@ -24,4 +24,4 @@ target_include_directories(w32-pthreads
 #CMAKE_CURRENT_SOURCE_DIR 当前处理的CMakeLists.txt所在的路径
 target_link_libraries(w32-pthreads)
 
-install_obs_core(w32-pthreads EXPORT w32-pthreads)
+#install_obs_core(w32-pthreads EXPORT w32-pthreads)

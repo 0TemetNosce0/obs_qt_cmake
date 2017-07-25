@@ -588,7 +588,7 @@ fail:
 	return code;
 }
 
-BOOL WINAPI DllMain(HINSTANCE hinst_dll, DWORD reason, LPVOID reserved)
+BOOL WINAPI DllMainTest(HINSTANCE hinst_dll, DWORD reason, LPVOID reserved)
 {
 	switch (reason) {
 
