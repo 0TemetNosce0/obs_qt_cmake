@@ -794,7 +794,8 @@ bool obs_startup(const char *locale, const char *module_config_path,
 	}
 
 #ifdef _WIN32
-	initialize_crash_handler();
+    //TODO 去掉异常捕获处理
+//	initialize_crash_handler();
 	initialize_com();
 #endif
 
