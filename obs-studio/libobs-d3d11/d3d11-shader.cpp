@@ -285,24 +285,24 @@ void gs_shader::UploadParams()
 	}
 }
 
-void gs_shader_destroy(gs_shader_t *shader)
+void gs_shader_destroy_obstest(gs_shader_t *shader)
 {
 	if (shader && shader->device->lastVertexShader == shader)
 		shader->device->lastVertexShader = nullptr;
 	delete shader;
 }
 
-int gs_shader_get_num_params(const gs_shader_t *shader)
+int gs_shader_get_num_params_obstest(const gs_shader_t *shader)
 {
 	return (int)shader->params.size();
 }
 
-gs_sparam_t *gs_shader_get_param_by_idx(gs_shader_t *shader, uint32_t param)
+gs_sparam_t *gs_shader_get_param_by_idx_obstest(gs_shader_t *shader, uint32_t param)
 {
 	return &shader->params[param];
 }
 
-gs_sparam_t *gs_shader_get_param_by_name(gs_shader_t *shader, const char *name)
+gs_sparam_t *gs_shader_get_param_by_name_obstest(gs_shader_t *shader, const char *name)
 {
 	for (size_t i = 0; i < shader->params.size(); i++) {
 		gs_shader_param &param = shader->params[i];
@@ -313,7 +313,7 @@ gs_sparam_t *gs_shader_get_param_by_name(gs_shader_t *shader, const char *name)
 	return NULL;
 }
 
-gs_sparam_t *gs_shader_get_viewproj_matrix(const gs_shader_t *shader)
+gs_sparam_t *gs_shader_get_viewproj_matrix_obstest(const gs_shader_t *shader)
 {
 	if (shader->type != GS_SHADER_VERTEX)
 		return NULL;
@@ -321,7 +321,7 @@ gs_sparam_t *gs_shader_get_viewproj_matrix(const gs_shader_t *shader)
 	return static_cast<const gs_vertex_shader*>(shader)->viewProj;
 }
 
-gs_sparam_t *gs_shader_get_world_matrix(const gs_shader_t *shader)
+gs_sparam_t *gs_shader_get_world_matrix_obstest(const gs_shader_t *shader)
 {
 	if (shader->type != GS_SHADER_VERTEX)
 		return NULL;
@@ -329,7 +329,7 @@ gs_sparam_t *gs_shader_get_world_matrix(const gs_shader_t *shader)
 	return static_cast<const gs_vertex_shader*>(shader)->world;
 }
 
-void gs_shader_get_param_info(const gs_sparam_t *param,
+void gs_shader_get_param_info_obstest(const gs_sparam_t *param,
 		struct gs_shader_param_info *info)
 {
 	if (!param)
@@ -356,67 +356,67 @@ static inline void shader_setval_inline(gs_shader_param *param,
 	}
 }
 
-void gs_shader_set_bool(gs_sparam_t *param, bool val)
+void gs_shader_set_bool_obstest(gs_sparam_t *param, bool val)
 {
 	int b_val = (int)val;
 	shader_setval_inline(param, &b_val, sizeof(int));
 }
 
-void gs_shader_set_float(gs_sparam_t *param, float val)
+void gs_shader_set_float_obstest(gs_sparam_t *param, float val)
 {
 	shader_setval_inline(param, &val, sizeof(float));
 }
 
-void gs_shader_set_int(gs_sparam_t *param, int val)
+void gs_shader_set_int_obstest(gs_sparam_t *param, int val)
 {
 	shader_setval_inline(param, &val, sizeof(int));
 }
 
-void gs_shader_set_matrix3(gs_sparam_t *param, const struct matrix3 *val)
+void gs_shader_set_matrix3_obstest(gs_sparam_t *param, const struct matrix3 *val)
 {
 	struct matrix4 mat;
 	matrix4_from_matrix3(&mat, val);
 	shader_setval_inline(param, &mat, sizeof(matrix4));
 }
 
-void gs_shader_set_matrix4(gs_sparam_t *param, const struct matrix4 *val)
+void gs_shader_set_matrix4_obstest(gs_sparam_t *param, const struct matrix4 *val)
 {
 	shader_setval_inline(param, val, sizeof(matrix4));
 }
 
-void gs_shader_set_vec2(gs_sparam_t *param, const struct vec2 *val)
+void gs_shader_set_vec2_obstest(gs_sparam_t *param, const struct vec2 *val)
 {
 	shader_setval_inline(param, val, sizeof(vec2));
 }
 
-void gs_shader_set_vec3(gs_sparam_t *param, const struct vec3 *val)
+void gs_shader_set_vec3_obstest(gs_sparam_t *param, const struct vec3 *val)
 {
 	shader_setval_inline(param, val, sizeof(float) * 3);
 }
 
-void gs_shader_set_vec4(gs_sparam_t *param, const struct vec4 *val)
+void gs_shader_set_vec4_obstest(gs_sparam_t *param, const struct vec4 *val)
 {
 	shader_setval_inline(param, val, sizeof(vec4));
 }
 
-void gs_shader_set_texture(gs_sparam_t *param, gs_texture_t *val)
+void gs_shader_set_texture_obstest(gs_sparam_t *param, gs_texture_t *val)
 {
 	shader_setval_inline(param, &val, sizeof(gs_texture_t*));
 }
 
-void gs_shader_set_val(gs_sparam_t *param, const void *val, size_t size)
+void gs_shader_set_val_obstest(gs_sparam_t *param, const void *val, size_t size)
 {
 	shader_setval_inline(param, val, size);
 }
 
-void gs_shader_set_default(gs_sparam_t *param)
+void gs_shader_set_default_obstest(gs_sparam_t *param)
 {
 	if (param->defaultValue.size())
 		shader_setval_inline(param, param->defaultValue.data(),
 				param->defaultValue.size());
 }
 
-void gs_shader_set_next_sampler(gs_sparam_t *param, gs_samplerstate_t *sampler)
+void gs_shader_set_next_sampler_obstest(gs_sparam_t *param, gs_samplerstate_t *sampler)
 {
 	param->nextSampler = sampler;
 }

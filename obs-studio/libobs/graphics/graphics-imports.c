@@ -107,67 +107,67 @@ bool load_graphics_imports(struct gs_exports *exports, void *module,
 	GRAPHICS_IMPORT(device_projection_push);
 	GRAPHICS_IMPORT(device_projection_pop);
 
-	GRAPHICS_IMPORT(gs_swapchain_destroy);
+    GRAPHICS_IMPORT(gs_swapchain_destroy_obstest);
 
-	GRAPHICS_IMPORT(gs_texture_destroy);
-	GRAPHICS_IMPORT(gs_texture_get_width);
-	GRAPHICS_IMPORT(gs_texture_get_height);
-	GRAPHICS_IMPORT(gs_texture_get_color_format);
-	GRAPHICS_IMPORT(gs_texture_map);
-	GRAPHICS_IMPORT(gs_texture_unmap);
+    GRAPHICS_IMPORT(gs_texture_destroy_obstest);
+    GRAPHICS_IMPORT(gs_texture_get_width_test);
+    GRAPHICS_IMPORT(gs_texture_get_height_obstest);
+    GRAPHICS_IMPORT(gs_texture_get_color_format_obstest);
+    GRAPHICS_IMPORT(gs_texture_map_obstest);
+    GRAPHICS_IMPORT(gs_texture_unmap_obstest);
 	GRAPHICS_IMPORT_OPTIONAL(gs_texture_is_rect);
-	GRAPHICS_IMPORT(gs_texture_get_obj);
+    GRAPHICS_IMPORT(gs_texture_get_obj_obstest);
 
-	GRAPHICS_IMPORT(gs_cubetexture_destroy);
-	GRAPHICS_IMPORT(gs_cubetexture_get_size);
-	GRAPHICS_IMPORT(gs_cubetexture_get_color_format);
+    GRAPHICS_IMPORT(gs_cubetexture_destroy_obstest);
+    GRAPHICS_IMPORT(gs_cubetexture_get_size_obstest);
+    GRAPHICS_IMPORT(gs_cubetexture_get_color_format_obstest);
 
-	GRAPHICS_IMPORT(gs_voltexture_destroy);
-	GRAPHICS_IMPORT(gs_voltexture_get_width);
-	GRAPHICS_IMPORT(gs_voltexture_get_height);
-	GRAPHICS_IMPORT(gs_voltexture_get_depth);
-	GRAPHICS_IMPORT(gs_voltexture_get_color_format);
+    GRAPHICS_IMPORT(gs_voltexture_destroy_obstest);
+    GRAPHICS_IMPORT(gs_voltexture_get_width_obstest);
+    GRAPHICS_IMPORT(gs_voltexture_get_height_obstest);
+    GRAPHICS_IMPORT(gs_voltexture_get_depth_obstest);
+    GRAPHICS_IMPORT(gs_voltexture_get_color_format_obstest);
 
-	GRAPHICS_IMPORT(gs_stagesurface_destroy);
-	GRAPHICS_IMPORT(gs_stagesurface_get_width);
-	GRAPHICS_IMPORT(gs_stagesurface_get_height);
-	GRAPHICS_IMPORT(gs_stagesurface_get_color_format);
-	GRAPHICS_IMPORT(gs_stagesurface_map);
-	GRAPHICS_IMPORT(gs_stagesurface_unmap);
+    GRAPHICS_IMPORT(gs_stagesurface_destroy_obstest);
+    GRAPHICS_IMPORT(gs_stagesurface_get_width_obstest);
+    GRAPHICS_IMPORT(gs_stagesurface_get_height_obstest);
+    GRAPHICS_IMPORT(gs_stagesurface_get_color_format_obstest);
+    GRAPHICS_IMPORT(gs_stagesurface_map_obstest);
+    GRAPHICS_IMPORT(gs_stagesurface_unmap_obstest);
 
-	GRAPHICS_IMPORT(gs_zstencil_destroy);
+    GRAPHICS_IMPORT(gs_zstencil_destroy_obstest);
 
-	GRAPHICS_IMPORT(gs_samplerstate_destroy);
+    GRAPHICS_IMPORT(gs_samplerstate_destroy_obstest);
 
-	GRAPHICS_IMPORT(gs_vertexbuffer_destroy);
-	GRAPHICS_IMPORT(gs_vertexbuffer_flush);
-	GRAPHICS_IMPORT(gs_vertexbuffer_get_data);
+    GRAPHICS_IMPORT(gs_vertexbuffer_destroy_obstest);
+    GRAPHICS_IMPORT(gs_vertexbuffer_flush_obstest);
+    GRAPHICS_IMPORT(gs_vertexbuffer_get_data_obstest);
 
-	GRAPHICS_IMPORT(gs_indexbuffer_destroy);
-	GRAPHICS_IMPORT(gs_indexbuffer_flush);
-	GRAPHICS_IMPORT(gs_indexbuffer_get_data);
-	GRAPHICS_IMPORT(gs_indexbuffer_get_num_indices);
-	GRAPHICS_IMPORT(gs_indexbuffer_get_type);
+    GRAPHICS_IMPORT(gs_indexbuffer_destroy_obstest);
+    GRAPHICS_IMPORT(gs_indexbuffer_flush_obstest);
+    GRAPHICS_IMPORT(gs_indexbuffer_get_data_obstest);
+    GRAPHICS_IMPORT(gs_indexbuffer_get_num_indices_obstest);
+    GRAPHICS_IMPORT(gs_indexbuffer_get_type_obstest);
 
-	GRAPHICS_IMPORT(gs_shader_destroy);
-	GRAPHICS_IMPORT(gs_shader_get_num_params);
-	GRAPHICS_IMPORT(gs_shader_get_param_by_idx);
-	GRAPHICS_IMPORT(gs_shader_get_param_by_name);
-	GRAPHICS_IMPORT(gs_shader_get_viewproj_matrix);
-	GRAPHICS_IMPORT(gs_shader_get_world_matrix);
-	GRAPHICS_IMPORT(gs_shader_get_param_info);
-	GRAPHICS_IMPORT(gs_shader_set_bool);
-	GRAPHICS_IMPORT(gs_shader_set_float);
-	GRAPHICS_IMPORT(gs_shader_set_int);
-	GRAPHICS_IMPORT(gs_shader_set_matrix3);
-	GRAPHICS_IMPORT(gs_shader_set_matrix4);
-	GRAPHICS_IMPORT(gs_shader_set_vec2);
-	GRAPHICS_IMPORT(gs_shader_set_vec3);
-	GRAPHICS_IMPORT(gs_shader_set_vec4);
-	GRAPHICS_IMPORT(gs_shader_set_texture);
-	GRAPHICS_IMPORT(gs_shader_set_val);
-	GRAPHICS_IMPORT(gs_shader_set_default);
-	GRAPHICS_IMPORT(gs_shader_set_next_sampler);
+    GRAPHICS_IMPORT(gs_shader_destroy_obstest);
+    GRAPHICS_IMPORT(gs_shader_get_num_params_obstest);
+    GRAPHICS_IMPORT(gs_shader_get_param_by_idx_obstest);
+    GRAPHICS_IMPORT(gs_shader_get_param_by_name_obstest);
+    GRAPHICS_IMPORT(gs_shader_get_viewproj_matrix_obstest);
+    GRAPHICS_IMPORT(gs_shader_get_world_matrix_obstest);
+    GRAPHICS_IMPORT(gs_shader_get_param_info_obstest);
+    GRAPHICS_IMPORT(gs_shader_set_bool_obstest);
+    GRAPHICS_IMPORT(gs_shader_set_float_obstest);
+    GRAPHICS_IMPORT(gs_shader_set_int_obstest);
+    GRAPHICS_IMPORT(gs_shader_set_matrix3_obstest);
+    GRAPHICS_IMPORT(gs_shader_set_matrix4_obstest);
+    GRAPHICS_IMPORT(gs_shader_set_vec2_obstest);
+    GRAPHICS_IMPORT(gs_shader_set_vec3_obstest);
+    GRAPHICS_IMPORT(gs_shader_set_vec4_obstest);
+    GRAPHICS_IMPORT(gs_shader_set_texture_obstest);
+    GRAPHICS_IMPORT(gs_shader_set_val_obstest);
+    GRAPHICS_IMPORT(gs_shader_set_default_obstest);
+    GRAPHICS_IMPORT(gs_shader_set_next_sampler_obstest);
 
 	/* OSX/Cocoa specific functions */
 #ifdef __APPLE__
@@ -180,12 +180,12 @@ bool load_graphics_imports(struct gs_exports *exports, void *module,
 	GRAPHICS_IMPORT(device_shared_texture_available);
 	GRAPHICS_IMPORT_OPTIONAL(device_get_duplicator_monitor_info);
 	GRAPHICS_IMPORT_OPTIONAL(device_duplicator_create);
-	GRAPHICS_IMPORT_OPTIONAL(gs_duplicator_destroy);
-	GRAPHICS_IMPORT_OPTIONAL(gs_duplicator_update_frame);
-	GRAPHICS_IMPORT_OPTIONAL(gs_duplicator_get_texture);
+    GRAPHICS_IMPORT_OPTIONAL(gs_duplicator_destroy_obstest);
+    GRAPHICS_IMPORT_OPTIONAL(gs_duplicator_update_frame_obstest);
+    GRAPHICS_IMPORT_OPTIONAL(gs_duplicator_get_texture_obstest);
 	GRAPHICS_IMPORT_OPTIONAL(device_texture_create_gdi);
-	GRAPHICS_IMPORT_OPTIONAL(gs_texture_get_dc);
-	GRAPHICS_IMPORT_OPTIONAL(gs_texture_release_dc);
+    GRAPHICS_IMPORT_OPTIONAL(gs_texture_get_dc_obstest);
+    GRAPHICS_IMPORT_OPTIONAL(gs_texture_release_dc_obstest);
 	GRAPHICS_IMPORT_OPTIONAL(device_texture_open_shared);
 #endif
 
