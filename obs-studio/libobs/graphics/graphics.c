@@ -218,7 +218,7 @@ void gs_destroy(graphics_t *graphics)
 {
 	if (!ptr_valid(graphics, "gs_destroy"))
 		return;
-
+printf("qqqqqq  gs_destroy");
 	while (thread_graphics)
 		gs_leave_context();
 
@@ -234,9 +234,9 @@ void gs_destroy(graphics_t *graphics)
 			effect = next;
 		}
 
-		graphics->exports.gs_vertexbuffer_destroy(
+        graphics->exports.gs_vertexbuffer_destroy_obstest(
 				graphics->sprite_buffer);
-		graphics->exports.gs_vertexbuffer_destroy(
+        graphics->exports.gs_vertexbuffer_destroy_obstest(
 				graphics->immediate_vertbuffer);
 		graphics->exports.device_destroy(graphics->device);
 
@@ -1960,7 +1960,7 @@ void gs_swapchain_destroy(gs_swapchain_t *swapchain)
 	if (!swapchain)
 		return;
 
-	graphics->exports.gs_swapchain_destroy(swapchain);
+    graphics->exports.gs_swapchain_destroy_obstest(swapchain);
 }
 
 void gs_shader_destroy(gs_shader_t *shader)
@@ -1972,7 +1972,7 @@ void gs_shader_destroy(gs_shader_t *shader)
 	if (!shader)
 		return;
 
-	graphics->exports.gs_shader_destroy(shader);
+    graphics->exports.gs_shader_destroy_obstest(shader);
 }
 
 int gs_shader_get_num_params(const gs_shader_t *shader)
@@ -1982,7 +1982,7 @@ int gs_shader_get_num_params(const gs_shader_t *shader)
 	if (!gs_valid_p("gs_shader_get_num_params", shader))
 		return 0;
 
-	return graphics->exports.gs_shader_get_num_params(shader);
+    return graphics->exports.gs_shader_get_num_params_obstest(shader);
 }
 
 gs_sparam_t *gs_shader_get_param_by_idx(gs_shader_t *shader, uint32_t param)
@@ -1992,7 +1992,7 @@ gs_sparam_t *gs_shader_get_param_by_idx(gs_shader_t *shader, uint32_t param)
 	if (!gs_valid_p("gs_shader_get_param_by_idx", shader))
 		return NULL;
 
-	return graphics->exports.gs_shader_get_param_by_idx(shader, param);
+    return graphics->exports.gs_shader_get_param_by_idx_obstest(shader, param);
 }
 
 gs_sparam_t *gs_shader_get_param_by_name(gs_shader_t *shader, const char *name)
@@ -2002,7 +2002,7 @@ gs_sparam_t *gs_shader_get_param_by_name(gs_shader_t *shader, const char *name)
 	if (!gs_valid_p2("gs_shader_get_param_by_name", shader, name))
 		return NULL;
 
-	return graphics->exports.gs_shader_get_param_by_name(shader, name);
+    return graphics->exports.gs_shader_get_param_by_name_obstest(shader, name);
 }
 
 gs_sparam_t *gs_shader_get_viewproj_matrix(const gs_shader_t *shader)
@@ -2012,7 +2012,7 @@ gs_sparam_t *gs_shader_get_viewproj_matrix(const gs_shader_t *shader)
 	if (!gs_valid_p("gs_shader_get_viewproj_matrix", shader))
 		return NULL;
 
-	return graphics->exports.gs_shader_get_viewproj_matrix(shader);
+    return graphics->exports.gs_shader_get_viewproj_matrix_obstest(shader);
 }
 
 gs_sparam_t *gs_shader_get_world_matrix(const gs_shader_t *shader)
@@ -2022,7 +2022,7 @@ gs_sparam_t *gs_shader_get_world_matrix(const gs_shader_t *shader)
 	if (!gs_valid_p("gs_shader_get_world_matrix", shader))
 		return NULL;
 
-	return graphics->exports.gs_shader_get_world_matrix(shader);
+    return graphics->exports.gs_shader_get_world_matrix_obstest(shader);
 }
 
 void gs_shader_get_param_info(const gs_sparam_t *param,
@@ -2033,7 +2033,7 @@ void gs_shader_get_param_info(const gs_sparam_t *param,
 	if (!gs_valid_p2("gs_shader_get_param_info", param, info))
 		return;
 
-	graphics->exports.gs_shader_get_param_info(param, info);
+    graphics->exports.gs_shader_get_param_info_obstest(param, info);
 }
 
 void gs_shader_set_bool(gs_sparam_t *param, bool val)
@@ -2043,7 +2043,7 @@ void gs_shader_set_bool(gs_sparam_t *param, bool val)
 	if (!gs_valid_p("gs_shader_set_bool", param))
 		return;
 
-	graphics->exports.gs_shader_set_bool(param, val);
+    graphics->exports.gs_shader_set_bool_obstest(param, val);
 }
 
 void gs_shader_set_float(gs_sparam_t *param, float val)
@@ -2053,7 +2053,7 @@ void gs_shader_set_float(gs_sparam_t *param, float val)
 	if (!gs_valid_p("gs_shader_set_float", param))
 		return;
 
-	graphics->exports.gs_shader_set_float(param, val);
+    graphics->exports.gs_shader_set_float_obstest(param, val);
 }
 
 void gs_shader_set_int(gs_sparam_t *param, int val)
@@ -2063,7 +2063,7 @@ void gs_shader_set_int(gs_sparam_t *param, int val)
 	if (!gs_valid_p("gs_shader_set_int", param))
 		return;
 
-	graphics->exports.gs_shader_set_int(param, val);
+    graphics->exports.gs_shader_set_int_obstest(param, val);
 }
 
 void gs_shader_set_matrix3(gs_sparam_t *param, const struct matrix3 *val)
@@ -2073,7 +2073,7 @@ void gs_shader_set_matrix3(gs_sparam_t *param, const struct matrix3 *val)
 	if (!gs_valid_p2("gs_shader_set_matrix3", param, val))
 		return;
 
-	graphics->exports.gs_shader_set_matrix3(param, val);
+    graphics->exports.gs_shader_set_matrix3_obstest(param, val);
 }
 
 void gs_shader_set_matrix4(gs_sparam_t *param, const struct matrix4 *val)
@@ -2083,7 +2083,7 @@ void gs_shader_set_matrix4(gs_sparam_t *param, const struct matrix4 *val)
 	if (!gs_valid_p2("gs_shader_set_matrix4", param, val))
 		return;
 
-	graphics->exports.gs_shader_set_matrix4(param, val);
+    graphics->exports.gs_shader_set_matrix4_obstest(param, val);
 }
 
 void gs_shader_set_vec2(gs_sparam_t *param, const struct vec2 *val)
@@ -2093,7 +2093,7 @@ void gs_shader_set_vec2(gs_sparam_t *param, const struct vec2 *val)
 	if (!gs_valid_p2("gs_shader_set_vec2", param, val))
 		return;
 
-	graphics->exports.gs_shader_set_vec2(param, val);
+    graphics->exports.gs_shader_set_vec2_obstest(param, val);
 }
 
 void gs_shader_set_vec3(gs_sparam_t *param, const struct vec3 *val)
@@ -2103,7 +2103,7 @@ void gs_shader_set_vec3(gs_sparam_t *param, const struct vec3 *val)
 	if (!gs_valid_p2("gs_shader_set_vec3", param, val))
 		return;
 
-	graphics->exports.gs_shader_set_vec3(param, val);
+    graphics->exports.gs_shader_set_vec3_obstest(param, val);
 }
 
 void gs_shader_set_vec4(gs_sparam_t *param, const struct vec4 *val)
@@ -2113,7 +2113,7 @@ void gs_shader_set_vec4(gs_sparam_t *param, const struct vec4 *val)
 	if (!gs_valid_p2("gs_shader_set_vec4", param, val))
 		return;
 
-	graphics->exports.gs_shader_set_vec4(param, val);
+    graphics->exports.gs_shader_set_vec4_obstest(param, val);
 }
 
 void gs_shader_set_texture(gs_sparam_t *param, gs_texture_t *val)
@@ -2123,7 +2123,7 @@ void gs_shader_set_texture(gs_sparam_t *param, gs_texture_t *val)
 	if (!gs_valid_p("gs_shader_set_texture", param))
 		return;
 
-	graphics->exports.gs_shader_set_texture(param, val);
+    graphics->exports.gs_shader_set_texture_obstest(param, val);
 }
 
 void gs_shader_set_val(gs_sparam_t *param, const void *val, size_t size)
@@ -2133,7 +2133,7 @@ void gs_shader_set_val(gs_sparam_t *param, const void *val, size_t size)
 	if (!gs_valid_p2("gs_shader_set_val", param, val))
 		return;
 
-	graphics->exports.gs_shader_set_val(param, val, size);
+    graphics->exports.gs_shader_set_val_obstest(param, val, size);
 }
 
 void gs_shader_set_default(gs_sparam_t *param)
@@ -2143,7 +2143,7 @@ void gs_shader_set_default(gs_sparam_t *param)
 	if (!gs_valid_p("gs_shader_set_default", param))
 		return;
 
-	graphics->exports.gs_shader_set_default(param);
+    graphics->exports.gs_shader_set_default_obstest(param);
 }
 
 void gs_shader_set_next_sampler(gs_sparam_t *param, gs_samplerstate_t *sampler)
@@ -2153,19 +2153,19 @@ void gs_shader_set_next_sampler(gs_sparam_t *param, gs_samplerstate_t *sampler)
 	if (!gs_valid_p("gs_shader_set_next_sampler", param))
 		return;
 
-	graphics->exports.gs_shader_set_next_sampler(param, sampler);
+    graphics->exports.gs_shader_set_next_sampler_obstest(param, sampler);
 }
 
 void gs_texture_destroy(gs_texture_t *tex)
 {
 	graphics_t *graphics = thread_graphics;
-
+printf("3333331 gs_texture_destroy\n");
 	if (!gs_valid("gs_texture_destroy"))
 		return;
 	if (!tex)
 		return;
 
-	graphics->exports.gs_texture_destroy(tex);
+    graphics->exports.gs_texture_destroy_obstest(tex);
 }
 
 uint32_t gs_texture_get_width(const gs_texture_t *tex)
@@ -2175,7 +2175,7 @@ uint32_t gs_texture_get_width(const gs_texture_t *tex)
 	if (!gs_valid_p("gs_texture_get_width", tex))
 		return 0;
 
-	return graphics->exports.gs_texture_get_width(tex);
+    return graphics->exports.gs_texture_get_width_test(tex);
 }
 
 uint32_t gs_texture_get_height(const gs_texture_t *tex)
@@ -2185,7 +2185,7 @@ uint32_t gs_texture_get_height(const gs_texture_t *tex)
 	if (!gs_valid_p("gs_texture_get_height", tex))
 		return 0;
 
-	return graphics->exports.gs_texture_get_height(tex);
+    return graphics->exports.gs_texture_get_height_obstest(tex);
 }
 
 enum gs_color_format gs_texture_get_color_format(const gs_texture_t *tex)
@@ -2195,7 +2195,7 @@ enum gs_color_format gs_texture_get_color_format(const gs_texture_t *tex)
 	if (!gs_valid_p("gs_texture_get_color_format", tex))
 		return GS_UNKNOWN;
 
-	return graphics->exports.gs_texture_get_color_format(tex);
+    return graphics->exports.gs_texture_get_color_format_obstest(tex);
 }
 
 bool gs_texture_map(gs_texture_t *tex, uint8_t **ptr, uint32_t *linesize)
@@ -2205,7 +2205,7 @@ bool gs_texture_map(gs_texture_t *tex, uint8_t **ptr, uint32_t *linesize)
 	if (!gs_valid_p3("gs_texture_map", tex, ptr, linesize))
 		return false;
 
-	return graphics->exports.gs_texture_map(tex, ptr, linesize);
+    return graphics->exports.gs_texture_map_obstest(tex, ptr, linesize);
 }
 
 void gs_texture_unmap(gs_texture_t *tex)
@@ -2215,7 +2215,7 @@ void gs_texture_unmap(gs_texture_t *tex)
 	if (!gs_valid_p("gs_texture_unmap", tex))
 		return;
 
-	graphics->exports.gs_texture_unmap(tex);
+    graphics->exports.gs_texture_unmap_obstest(tex);
 }
 
 bool gs_texture_is_rect(const gs_texture_t *tex)
@@ -2238,7 +2238,7 @@ void *gs_texture_get_obj(gs_texture_t *tex)
 	if (!gs_valid_p("gs_texture_get_obj", tex))
 		return NULL;
 
-	return graphics->exports.gs_texture_get_obj(tex);
+    return graphics->exports.gs_texture_get_obj_obstest(tex);
 }
 
 void gs_cubetexture_destroy(gs_texture_t *cubetex)
@@ -2250,7 +2250,7 @@ void gs_cubetexture_destroy(gs_texture_t *cubetex)
 	if (!cubetex)
 		return;
 
-	graphics->exports.gs_cubetexture_destroy(cubetex);
+    graphics->exports.gs_cubetexture_destroy_obstest(cubetex);
 }
 
 uint32_t gs_cubetexture_get_size(const gs_texture_t *cubetex)
@@ -2260,7 +2260,7 @@ uint32_t gs_cubetexture_get_size(const gs_texture_t *cubetex)
 	if (!gs_valid_p("gs_cubetexture_get_size", cubetex))
 		return 0;
 
-	return graphics->exports.gs_cubetexture_get_size(cubetex);
+    return graphics->exports.gs_cubetexture_get_size_obstest(cubetex);
 }
 
 enum gs_color_format gs_cubetexture_get_color_format(
@@ -2271,7 +2271,7 @@ enum gs_color_format gs_cubetexture_get_color_format(
 	if (!gs_valid_p("gs_cubetexture_get_color_format", cubetex))
 		return GS_UNKNOWN;
 
-	return graphics->exports.gs_cubetexture_get_color_format(cubetex);
+    return graphics->exports.gs_cubetexture_get_color_format_obstest(cubetex);
 }
 
 void gs_voltexture_destroy(gs_texture_t *voltex)
@@ -2283,7 +2283,7 @@ void gs_voltexture_destroy(gs_texture_t *voltex)
 	if (!voltex)
 		return;
 
-	graphics->exports.gs_voltexture_destroy(voltex);
+    graphics->exports.gs_voltexture_destroy_obstest(voltex);
 }
 
 uint32_t gs_voltexture_get_width(const gs_texture_t *voltex)
@@ -2293,7 +2293,7 @@ uint32_t gs_voltexture_get_width(const gs_texture_t *voltex)
 	if (!gs_valid_p("gs_voltexture_get_width", voltex))
 		return 0;
 
-	return graphics->exports.gs_voltexture_get_width(voltex);
+    return graphics->exports.gs_voltexture_get_width_obstest(voltex);
 }
 
 uint32_t gs_voltexture_get_height(const gs_texture_t *voltex)
@@ -2303,7 +2303,7 @@ uint32_t gs_voltexture_get_height(const gs_texture_t *voltex)
 	if (!gs_valid_p("gs_voltexture_get_height", voltex))
 		return 0;
 
-	return graphics->exports.gs_voltexture_get_height(voltex);
+    return graphics->exports.gs_voltexture_get_height_obstest(voltex);
 }
 
 uint32_t gs_voltexture_get_depth(const gs_texture_t *voltex)
@@ -2313,7 +2313,7 @@ uint32_t gs_voltexture_get_depth(const gs_texture_t *voltex)
 	if (!gs_valid_p("gs_voltexture_get_depth", voltex))
 		return 0;
 
-	return graphics->exports.gs_voltexture_get_depth(voltex);
+    return graphics->exports.gs_voltexture_get_depth_obstest(voltex);
 }
 
 enum gs_color_format gs_voltexture_get_color_format(const gs_texture_t *voltex)
@@ -2323,7 +2323,7 @@ enum gs_color_format gs_voltexture_get_color_format(const gs_texture_t *voltex)
 	if (!gs_valid_p("gs_voltexture_get_color_format", voltex))
 		return GS_UNKNOWN;
 
-	return graphics->exports.gs_voltexture_get_color_format(voltex);
+    return graphics->exports.gs_voltexture_get_color_format_obstest(voltex);
 }
 
 void gs_stagesurface_destroy(gs_stagesurf_t *stagesurf)
@@ -2335,7 +2335,7 @@ void gs_stagesurface_destroy(gs_stagesurf_t *stagesurf)
 	if (!stagesurf)
 		return;
 
-	graphics->exports.gs_stagesurface_destroy(stagesurf);
+    graphics->exports.gs_stagesurface_destroy_obstest(stagesurf);
 }
 
 uint32_t gs_stagesurface_get_width(const gs_stagesurf_t *stagesurf)
@@ -2345,7 +2345,7 @@ uint32_t gs_stagesurface_get_width(const gs_stagesurf_t *stagesurf)
 	if (!gs_valid_p("gs_stagesurface_get_width", stagesurf))
 		return 0;
 
-	return graphics->exports.gs_stagesurface_get_width(stagesurf);
+    return graphics->exports.gs_stagesurface_get_width_obstest(stagesurf);
 }
 
 uint32_t gs_stagesurface_get_height(const gs_stagesurf_t *stagesurf)
@@ -2355,7 +2355,7 @@ uint32_t gs_stagesurface_get_height(const gs_stagesurf_t *stagesurf)
 	if (!gs_valid_p("gs_stagesurface_get_height", stagesurf))
 		return 0;
 
-	return graphics->exports.gs_stagesurface_get_height(stagesurf);
+    return graphics->exports.gs_stagesurface_get_height_obstest(stagesurf);
 }
 
 enum gs_color_format gs_stagesurface_get_color_format(
@@ -2366,7 +2366,7 @@ enum gs_color_format gs_stagesurface_get_color_format(
 	if (!gs_valid_p("gs_stagesurface_get_color_format", stagesurf))
 		return GS_UNKNOWN;
 
-	return graphics->exports.gs_stagesurface_get_color_format(stagesurf);
+    return graphics->exports.gs_stagesurface_get_color_format_obstest(stagesurf);
 }
 
 bool gs_stagesurface_map(gs_stagesurf_t *stagesurf, uint8_t **data,
@@ -2377,7 +2377,7 @@ bool gs_stagesurface_map(gs_stagesurf_t *stagesurf, uint8_t **data,
 	if (!gs_valid_p3("gs_stagesurface_map", stagesurf, data, linesize))
 		return 0;
 
-	return graphics->exports.gs_stagesurface_map(stagesurf, data, linesize);
+    return graphics->exports.gs_stagesurface_map_obstest(stagesurf, data, linesize);
 }
 
 void gs_stagesurface_unmap(gs_stagesurf_t *stagesurf)
@@ -2387,7 +2387,7 @@ void gs_stagesurface_unmap(gs_stagesurf_t *stagesurf)
 	if (!gs_valid_p("gs_stagesurface_unmap", stagesurf))
 		return;
 
-	graphics->exports.gs_stagesurface_unmap(stagesurf);
+    graphics->exports.gs_stagesurface_unmap_obstest(stagesurf);
 }
 
 void gs_zstencil_destroy(gs_zstencil_t *zstencil)
@@ -2397,7 +2397,7 @@ void gs_zstencil_destroy(gs_zstencil_t *zstencil)
 	if (!zstencil)
 		return;
 
-	thread_graphics->exports.gs_zstencil_destroy(zstencil);
+    thread_graphics->exports.gs_zstencil_destroy_obstest(zstencil);
 }
 
 void gs_samplerstate_destroy(gs_samplerstate_t *samplerstate)
@@ -2407,7 +2407,7 @@ void gs_samplerstate_destroy(gs_samplerstate_t *samplerstate)
 	if (!samplerstate)
 		return;
 
-	thread_graphics->exports.gs_samplerstate_destroy(samplerstate);
+    thread_graphics->exports.gs_samplerstate_destroy_obstest(samplerstate);
 }
 
 void gs_vertexbuffer_destroy(gs_vertbuffer_t *vertbuffer)
@@ -2419,7 +2419,7 @@ void gs_vertexbuffer_destroy(gs_vertbuffer_t *vertbuffer)
 	if (!vertbuffer)
 		return;
 
-	graphics->exports.gs_vertexbuffer_destroy(vertbuffer);
+    graphics->exports.gs_vertexbuffer_destroy_obstest(vertbuffer);
 }
 
 void gs_vertexbuffer_flush(gs_vertbuffer_t *vertbuffer)
@@ -2427,7 +2427,7 @@ void gs_vertexbuffer_flush(gs_vertbuffer_t *vertbuffer)
 	if (!gs_valid_p("gs_vertexbuffer_flush", vertbuffer))
 		return;
 
-	thread_graphics->exports.gs_vertexbuffer_flush(vertbuffer);
+    thread_graphics->exports.gs_vertexbuffer_flush_obstest(vertbuffer);
 }
 
 struct gs_vb_data *gs_vertexbuffer_get_data(const gs_vertbuffer_t *vertbuffer)
@@ -2435,7 +2435,7 @@ struct gs_vb_data *gs_vertexbuffer_get_data(const gs_vertbuffer_t *vertbuffer)
 	if (!gs_valid_p("gs_vertexbuffer_get_data", vertbuffer))
 		return NULL;
 
-	return thread_graphics->exports.gs_vertexbuffer_get_data(vertbuffer);
+    return thread_graphics->exports.gs_vertexbuffer_get_data_obstest(vertbuffer);
 }
 
 void gs_indexbuffer_destroy(gs_indexbuffer_t *indexbuffer)
@@ -2447,7 +2447,7 @@ void gs_indexbuffer_destroy(gs_indexbuffer_t *indexbuffer)
 	if (!indexbuffer)
 		return;
 
-	graphics->exports.gs_indexbuffer_destroy(indexbuffer);
+    graphics->exports.gs_indexbuffer_destroy_obstest(indexbuffer);
 }
 
 void   gs_indexbuffer_flush(gs_indexbuffer_t *indexbuffer)
@@ -2455,7 +2455,7 @@ void   gs_indexbuffer_flush(gs_indexbuffer_t *indexbuffer)
 	if (!gs_valid_p("gs_indexbuffer_flush", indexbuffer))
 		return;
 
-	thread_graphics->exports.gs_indexbuffer_flush(indexbuffer);
+    thread_graphics->exports.gs_indexbuffer_flush_obstest(indexbuffer);
 }
 
 void  *gs_indexbuffer_get_data(const gs_indexbuffer_t *indexbuffer)
@@ -2463,7 +2463,7 @@ void  *gs_indexbuffer_get_data(const gs_indexbuffer_t *indexbuffer)
 	if (!gs_valid_p("gs_indexbuffer_get_data", indexbuffer))
 		return NULL;
 
-	return thread_graphics->exports.gs_indexbuffer_get_data(indexbuffer);
+    return thread_graphics->exports.gs_indexbuffer_get_data_obstest(indexbuffer);
 }
 
 size_t gs_indexbuffer_get_num_indices(const gs_indexbuffer_t *indexbuffer)
@@ -2471,7 +2471,7 @@ size_t gs_indexbuffer_get_num_indices(const gs_indexbuffer_t *indexbuffer)
 	if (!gs_valid_p("gs_indexbuffer_get_num_indices", indexbuffer))
 		return 0;
 
-	return thread_graphics->exports.gs_indexbuffer_get_num_indices(
+    return thread_graphics->exports.gs_indexbuffer_get_num_indices_obstest(
 			indexbuffer);
 }
 
@@ -2480,7 +2480,7 @@ enum gs_index_type gs_indexbuffer_get_type(const gs_indexbuffer_t *indexbuffer)
 	if (!gs_valid_p("gs_indexbuffer_get_type", indexbuffer))
 		return (enum gs_index_type)0;
 
-	return thread_graphics->exports.gs_indexbuffer_get_type(indexbuffer);
+    return thread_graphics->exports.gs_indexbuffer_get_type_obstest(indexbuffer);
 }
 
 #ifdef __APPLE__
@@ -2559,30 +2559,30 @@ void gs_duplicator_destroy(gs_duplicator_t *duplicator)
 		return;
 	if (!duplicator)
 		return;
-	if (!thread_graphics->exports.gs_duplicator_destroy)
+    if (!thread_graphics->exports.gs_duplicator_destroy_obstest)
 		return;
 
-	thread_graphics->exports.gs_duplicator_destroy(duplicator);
+    thread_graphics->exports.gs_duplicator_destroy_obstest(duplicator);
 }
 
 bool gs_duplicator_update_frame(gs_duplicator_t *duplicator)
 {
 	if (!gs_valid_p("gs_duplicator_update_frame", duplicator))
 		return false;
-	if (!thread_graphics->exports.gs_duplicator_get_texture)
+    if (!thread_graphics->exports.gs_duplicator_get_texture_obstest)
 		return false;
 
-	return thread_graphics->exports.gs_duplicator_update_frame(duplicator);
+    return thread_graphics->exports.gs_duplicator_update_frame_obstest(duplicator);
 }
 
 gs_texture_t *gs_duplicator_get_texture(gs_duplicator_t *duplicator)
 {
 	if (!gs_valid_p("gs_duplicator_get_texture", duplicator))
 		return NULL;
-	if (!thread_graphics->exports.gs_duplicator_get_texture)
+    if (!thread_graphics->exports.gs_duplicator_get_texture_obstest)
 		return NULL;
 
-	return thread_graphics->exports.gs_duplicator_get_texture(duplicator);
+    return thread_graphics->exports.gs_duplicator_get_texture_obstest(duplicator);
 }
 
 /** creates a windows GDI-lockable texture */
@@ -2604,8 +2604,8 @@ void *gs_texture_get_dc(gs_texture_t *gdi_tex)
 	if (!gs_valid_p("gs_texture_release_dc", gdi_tex))
 		return NULL;
 
-	if (thread_graphics->exports.gs_texture_get_dc)
-		return thread_graphics->exports.gs_texture_get_dc(gdi_tex);
+    if (thread_graphics->exports.gs_texture_get_dc_obstest)
+        return thread_graphics->exports.gs_texture_get_dc_obstest(gdi_tex);
 	return NULL;
 }
 
@@ -2614,8 +2614,8 @@ void gs_texture_release_dc(gs_texture_t *gdi_tex)
 	if (!gs_valid_p("gs_texture_release_dc", gdi_tex))
 		return;
 
-	if (thread_graphics->exports.gs_texture_release_dc)
-		thread_graphics->exports.gs_texture_release_dc(gdi_tex);
+    if (thread_graphics->exports.gs_texture_release_dc_obstest)
+        thread_graphics->exports.gs_texture_release_dc_obstest(gdi_tex);
 }
 
 gs_texture_t *gs_texture_open_shared(uint32_t handle)

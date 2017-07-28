@@ -138,7 +138,7 @@ EXPORT gs_duplicator_t *device_duplicator_create(gs_device_t *device,
 	return duplicator;
 }
 
-EXPORT void gs_duplicator_destroy(gs_duplicator_t *duplicator)
+EXPORT void gs_duplicator_destroy_obstest(gs_duplicator_t *duplicator)
 {
 	delete duplicator;
 }
@@ -164,7 +164,7 @@ static inline void copy_texture(gs_duplicator_t *d, ID3D11Texture2D *tex)
 				tex);
 }
 
-EXPORT bool gs_duplicator_update_frame(gs_duplicator_t *d)
+EXPORT bool gs_duplicator_update_frame_obstest(gs_duplicator_t *d)
 {
 	DXGI_OUTDUPL_FRAME_INFO info;
 	ComPtr<ID3D11Texture2D> tex;
@@ -198,7 +198,7 @@ EXPORT bool gs_duplicator_update_frame(gs_duplicator_t *d)
 	return true;
 }
 
-EXPORT gs_texture_t *gs_duplicator_get_texture(gs_duplicator_t *duplicator)
+EXPORT gs_texture_t *gs_duplicator_get_texture_obstest(gs_duplicator_t *duplicator)
 {
 	return duplicator->texture;
 }
