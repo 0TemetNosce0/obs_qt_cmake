@@ -1,5 +1,6 @@
 option(ENABLE_UI "Enables the OBS user interfaces" ON)
-option(ENABLE_UI "Enables the OBS user interfaces" OFF)
+#option(DISABLE_UI "Enables the OBS user interfaces" OFF)
+
 if(DISABLE_UI)
         message(STATUS "UI disabled")
         return()
