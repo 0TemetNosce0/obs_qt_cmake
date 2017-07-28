@@ -58,7 +58,10 @@ list(APPEND obs-vst_HEADERS
 	headers/vst-plugin-callbacks.hpp
 	headers/EditorWidget.h
 	headers/VSTPlugin.h)
-
+    if(MSVC)#test
+            add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+            add_compile_options("$<$<CONFIG:Release>:/MT>")
+    endif()
 add_library(obs-vst MODULE
 	${obs-vst_SOURCES}
 	${obs-vst_HEADERS}

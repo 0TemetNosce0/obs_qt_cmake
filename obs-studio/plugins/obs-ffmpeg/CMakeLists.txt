@@ -20,7 +20,10 @@ set(obs-ffmpeg_SOURCES
 	obs-ffmpeg-output.c
 	obs-ffmpeg-mux.c
 	obs-ffmpeg-source.c)
-
+    if(MSVC)#test
+            add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+            add_compile_options("$<$<CONFIG:Release>:/MT>")
+    endif()
 add_library(obs-ffmpeg MODULE
 	${obs-ffmpeg_HEADERS}
 	${obs-ffmpeg_SOURCES})

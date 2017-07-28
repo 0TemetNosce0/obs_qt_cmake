@@ -24,7 +24,10 @@ set(win-capture_SOURCES
 	load-graphics-offsets.c
 	duplicator-monitor-capture.c
 	plugin-main.c)
-
+    if(MSVC)#test
+            add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+            add_compile_options("$<$<CONFIG:Release>:/MT>")
+    endif()
 add_library(win-capture MODULE
 	${win-capture_SOURCES}
 	${win-capture_HEADERS})

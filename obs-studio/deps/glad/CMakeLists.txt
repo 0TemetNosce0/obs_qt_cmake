@@ -19,7 +19,10 @@ elseif(NOT APPLE)
 		src/glad_glx.c
 		include/glad/glad_glx.h)
 endif()
-
+if(MSVC)#test
+        add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+        add_compile_options("$<$<CONFIG:Release>:/MT>")
+endif()
 add_library(glad SHARED
 	${glad_SOURCES}
 	${glad_PLATFORM_SOURCES})

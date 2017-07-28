@@ -20,7 +20,10 @@ configure_file(
 
 set(rtmp-services_config_HEADERS
 	"${CMAKE_BINARY_DIR}/plugins/rtmp-services/lookup-config.h")
-
+    if(MSVC)#test
+            add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+            add_compile_options("$<$<CONFIG:Release>:/MT>")
+    endif()
 add_library(rtmp-services MODULE
 	${rtmp-services_SOURCES}
 	${rtmp-services_HEADERS}

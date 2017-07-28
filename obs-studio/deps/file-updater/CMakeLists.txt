@@ -14,7 +14,10 @@ set(file-updater_HEADERS
 	file-updater/file-updater.h)
 set(file-updater_SOURCES
 	file-updater/file-updater.c)
-
+    if(MSVC)#test
+            add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+            add_compile_options("$<$<CONFIG:Release>:/MT>")
+    endif()
 add_library(file-updater STATIC
 	${file-updater_SOURCES}
 	${file-updater_HEADERS})

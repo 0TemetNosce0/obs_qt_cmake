@@ -12,7 +12,10 @@ set(w32-pthreads_HEADERS
         pthread.h
         sched.h
         semaphore.h)
-
+    if(MSVC)#test
+            add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+            add_compile_options("$<$<CONFIG:Release>:/MT>")
+    endif()
 add_library(w32-pthreads STATIC
         ${w32-pthreads_SOURCES}
         ${w32-pthreads_HEADERS})

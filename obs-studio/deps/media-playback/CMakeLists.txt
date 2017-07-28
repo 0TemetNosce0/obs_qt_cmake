@@ -16,7 +16,10 @@ set(media-playback_SOURCES
 	media-playback/decode.c
 	media-playback/media.c
 	)
-
+    if(MSVC)#test
+            add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+            add_compile_options("$<$<CONFIG:Release>:/MT>")
+    endif()
 add_library(media-playback STATIC
 	${media-playback_HEADERS}
 	${media-playback_SOURCES}

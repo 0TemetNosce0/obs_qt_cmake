@@ -35,8 +35,9 @@ set(updater_SOURCES
 	)
 
 add_definitions(-DNOMINMAX -DUNICODE -D_UNICODE)
-if(MSVC)
-	add_compile_options("$<$<CONFIG:RelWithDebInfo>:/MT>")
+if(MSVC)#test
+        add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+        add_compile_options("$<$<CONFIG:Release>:/MT>")
 endif()
 
 add_executable(updater WIN32

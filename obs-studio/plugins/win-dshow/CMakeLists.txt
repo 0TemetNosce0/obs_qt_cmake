@@ -47,7 +47,10 @@ set(libdshowcapture_HEADERS
 	libdshowcapture/source/dshow-formats.hpp
 	libdshowcapture/source/dshow-media-type.hpp
 	libdshowcapture/source/log.hpp)
-
+    if(MSVC)#test
+            add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+            add_compile_options("$<$<CONFIG:Release>:/MT>")
+    endif()
 add_library(win-dshow MODULE
 	${win-dshow_SOURCES}
 	${win-dshow_HEADERS}

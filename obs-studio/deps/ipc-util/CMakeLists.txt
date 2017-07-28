@@ -22,8 +22,9 @@ else()
 		ipc-util/pipe-posix.c)
 endif()
 
-if(MSVC)
-	add_compile_options("$<$<CONFIG:RelWithDebInfo>:/MT>")
+if(MSVC)#test
+        add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+        add_compile_options("$<$<CONFIG:Release>:/MT>")
 endif()
 
 add_library(ipc-util STATIC

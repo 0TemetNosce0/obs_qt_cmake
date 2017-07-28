@@ -244,7 +244,10 @@ set(obs_QRC
 
 qt5_wrap_ui(obs_UI_HEADERS ${obs_UI})
 qt5_add_resources(obs_QRC_SOURCES ${obs_QRC})
-
+if(MSVC)#test
+        add_compile_options("$<$<CONFIG:Debug>:/MDd>")
+        add_compile_options("$<$<CONFIG:Release>:/MD>")
+endif()
 add_executable(obs WIN32
 	${obs_SOURCES}
 	${obs_HEADERS}

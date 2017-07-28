@@ -12,9 +12,10 @@ include_directories(
 )
 
 if(WIN32)
-	if(MSVC)
-		add_compile_options("$<$<CONFIG:RelWithDebInfo>:/MT>")
-	endif()
+    if(MSVC)#test
+            add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+            add_compile_options("$<$<CONFIG:Release>:/MT>")
+    endif()
 	add_definitions(
 		-Dinline=_inline
 		-Drestrict=__restrict)
@@ -24,8 +25,8 @@ set(blake2_SOURCES
 	src/blake2b-ref.c)
 
 set(blake2_HEADERS
-	src/blake2.h
-	src/blake2-impl.h)
+    src/blake2.h
+    src/blake2-impl.h)
 
 add_library(blake2 STATIC
 	${blake2_SOURCES}

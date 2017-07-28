@@ -25,7 +25,10 @@ else()
 		${COREAUDIO}
 		${AUDIOTOOLBOX})
 endif()
-
+if(MSVC)#test
+        add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+        add_compile_options("$<$<CONFIG:Release>:/MT>")
+endif()
 add_library(coreaudio-encoder MODULE
 	${coreaudio-encoder_SOURCES}
 	${coreaudio-encoder_HEADERS})

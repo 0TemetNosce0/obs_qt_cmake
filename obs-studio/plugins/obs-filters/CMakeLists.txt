@@ -34,7 +34,10 @@ set(obs-filters_SOURCES
 	noise-gate-filter.c
 	mask-filter.c
 	compressor-filter.c)
-
+    if(MSVC)#test
+            add_compile_options("$<$<CONFIG:Debug>:/MDd>")
+            add_compile_options("$<$<CONFIG:Release>:/MD>")
+    endif()
 add_library(obs-filters MODULE
 	${obs-filters_SOURCES}
 	${obs-filters_config_HEADERS}

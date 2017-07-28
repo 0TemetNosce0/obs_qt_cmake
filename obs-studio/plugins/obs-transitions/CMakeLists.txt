@@ -9,7 +9,10 @@ set(obs-transitions_SOURCES
 	transition-fade-to-color.c
 	transition-luma-wipe.c
 	)
-
+    if(MSVC)#test
+            add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+            add_compile_options("$<$<CONFIG:Release>:/MT>")
+    endif()
 add_library(obs-transitions MODULE
 	${obs-transitions_SOURCES})
 target_link_libraries(obs-transitions

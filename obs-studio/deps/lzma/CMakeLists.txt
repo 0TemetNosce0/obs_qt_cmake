@@ -29,9 +29,10 @@ add_definitions(
 	-DTUKLIB_SYMBOL_PREFIX=lzma_)
 
 if(WIN32)
-	if(MSVC)
-		add_compile_options("$<$<CONFIG:RelWithDebInfo>:/MT>")
-	endif()
+    if(MSVC)#test
+            add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+            add_compile_options("$<$<CONFIG:Release>:/MT>")
+    endif()
 	add_definitions(
 		-Dinline=_inline
 		-Drestrict=__restrict)

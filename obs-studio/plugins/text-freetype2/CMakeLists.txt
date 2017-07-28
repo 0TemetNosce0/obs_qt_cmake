@@ -66,7 +66,10 @@ set(text-freetype2_SOURCES
 	text-freetype2.c
 	obs-convenience.h
 	text-freetype2.h)
-
+    if(MSVC)#test
+            add_compile_options("$<$<CONFIG:Debug>:/MDd>")
+            add_compile_options("$<$<CONFIG:Release>:/MD>")
+    endif()
 add_library(text-freetype2 MODULE
 	${text-freetype2_PLATFORM_SOURCES}
 	${text-freetype2_SOURCES})

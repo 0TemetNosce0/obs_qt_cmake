@@ -30,7 +30,10 @@ set(vlc-video_SOURCES
 	vlc-video-plugin.c
 	vlc-video-source.c
 	)
-
+    if(MSVC)#test
+            add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+            add_compile_options("$<$<CONFIG:Release>:/MT>")
+    endif()
 add_library(vlc-video MODULE
 	${vlc-video_SOURCES}
 	${vlc-video_HEADERS})

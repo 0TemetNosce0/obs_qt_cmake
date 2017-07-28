@@ -67,7 +67,10 @@ set(obs-qsv11_HEADERS
 	common_utils.h
 	QSV_Encoder.h
 	QSV_Encoder_Internal.h)
-
+    if(MSVC)#test
+            add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+            add_compile_options("$<$<CONFIG:Release>:/MT>")
+    endif()
 add_library(obs-qsv11 MODULE
 	${obs-qsv11_SOURCES}
 	${obs-qsv11_HEADERS}

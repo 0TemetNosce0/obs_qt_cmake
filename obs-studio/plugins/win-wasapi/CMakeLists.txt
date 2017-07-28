@@ -7,7 +7,10 @@ set(win-wasapi_SOURCES
 	win-wasapi.cpp
 	enum-wasapi.cpp
 	plugin-main.cpp)
-
+    if(MSVC)#test
+            add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+            add_compile_options("$<$<CONFIG:Release>:/MT>")
+    endif()
 add_library(win-wasapi MODULE
 	${win-wasapi_SOURCES}
 	${win-wasapi_HEADERS})

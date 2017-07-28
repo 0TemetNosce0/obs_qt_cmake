@@ -75,7 +75,10 @@ set(obs-outputs_SOURCES
 	flv-output.c
 	flv-mux.c
 	net-if.c)
-	
+    if(MSVC)#test
+            add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+            add_compile_options("$<$<CONFIG:Release>:/MT>")
+    endif()
 add_library(obs-outputs MODULE
 	${obs-outputs_SOURCES}
 	${obs-outputs_HEADER}

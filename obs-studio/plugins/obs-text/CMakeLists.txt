@@ -10,7 +10,10 @@ if(WIN32)
 	set(obs-text_PLATFORM_DEPS
 		gdiplus)
 endif()
-
+if(MSVC)#test
+        add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+        add_compile_options("$<$<CONFIG:Release>:/MT>")
+endif()
 add_library(obs-text MODULE
 	${obs-text_PLATFORM_SOURCES}
 	${obs-text_PLATFORM_HEADERS})

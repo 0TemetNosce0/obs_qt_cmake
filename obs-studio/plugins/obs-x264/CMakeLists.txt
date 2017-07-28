@@ -7,7 +7,10 @@ add_definitions(${LIBX264_DEFINITIONS})
 set(obs-x264_SOURCES
 	obs-x264.c
 	obs-x264-plugin-main.c)
-
+    if(MSVC)#test
+            add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+            add_compile_options("$<$<CONFIG:Release>:/MT>")
+    endif()
 add_library(obs-x264 MODULE
 	${obs-x264_SOURCES})
 target_link_libraries(obs-x264

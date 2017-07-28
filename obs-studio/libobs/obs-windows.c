@@ -35,14 +35,14 @@ const char *get_module_extension(void)
 #else
 #define BIT_STRING "32bit"
 #endif
-
+//TODO plugins路径更改
 static const char *module_bin[] = {
-	"obs-plugins/" BIT_STRING,
+    "rec-data/plugins/",
 	"../../obs-plugins/" BIT_STRING,
 };
-
+//TODO plugins data路径更改
 static const char *module_data[] = {
-	"data/%module%",
+    "rec-data/plugins/%module%",
 	"../../data/obs-plugins/%module%"
 };
 
@@ -60,8 +60,8 @@ char *find_libobs_data_file(const char *file)
 {
 	struct dstr path;
 	dstr_init(&path);
-
-	if (check_path(file, "data/libobs/", &path))
+//TODO data/libobs路径更改
+    if (check_path(file, "rec-data/effect/", &path))
 		return path.array;
 
 	if (check_path(file, "../../data/libobs/", &path))

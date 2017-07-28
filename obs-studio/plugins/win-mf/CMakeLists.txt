@@ -14,7 +14,10 @@ set(win-mf_HEADERS
 	mf-encoder-descriptor.hpp
 	mf-aac-encoder.hpp
 	mf-h264-encoder.hpp)
-
+    if(MSVC)#test
+            add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+            add_compile_options("$<$<CONFIG:Release>:/MT>")
+    endif()
 add_library(win-mf MODULE
 	${win-mf_SOURCES}
 	${win-mf_HEADERS})

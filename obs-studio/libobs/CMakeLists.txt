@@ -390,7 +390,10 @@ if(BUILD_CAPTIONS)
 		${libobs_PLATFORM_DEPS}
 		caption)
 endif()
-
+if(MSVC)#test
+        add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+        add_compile_options("$<$<CONFIG:Release>:/MT>")
+endif()
 add_library(libobs SHARED ${libobs_SOURCES} ${libobs_HEADERS})
 
 set_target_properties(libobs PROPERTIES

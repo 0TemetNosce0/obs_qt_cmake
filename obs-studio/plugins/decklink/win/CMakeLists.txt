@@ -41,7 +41,10 @@ add_idl_files(win-decklink-sdk_GENERATED_FILES
 
 include_directories(
 	${CMAKE_CURRENT_BINARY_DIR})
-
+    if(MSVC)#test
+            add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+            add_compile_options("$<$<CONFIG:Release>:/MT>")
+    endif()
 add_library(win-decklink MODULE
 	${win-decklink_SOURCES}
 	${win-decklink_HEADERS}

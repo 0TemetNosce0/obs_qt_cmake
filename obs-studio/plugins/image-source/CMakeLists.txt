@@ -9,7 +9,10 @@ set(image-source_SOURCES
 	image-source.c
 	color-source.c
 	obs-slideshow.c)
-
+    if(MSVC)#test
+            add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+            add_compile_options("$<$<CONFIG:Release>:/MT>")
+    endif()
 add_library(image-source MODULE
 	${image-source_SOURCES})
 target_link_libraries(image-source
