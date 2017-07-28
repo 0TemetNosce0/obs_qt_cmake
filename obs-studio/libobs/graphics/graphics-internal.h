@@ -149,83 +149,83 @@ struct gs_exports {
 	void (*device_projection_push)(gs_device_t *device);
 	void (*device_projection_pop)(gs_device_t *device);
 
-    void     (*gs_swapchain_destroy_obstest)(gs_swapchain_t *swapchain);
+	void     (*gs_swapchain_destroy)(gs_swapchain_t *swapchain);
 
-    void     (*gs_texture_destroy_obstest)(gs_texture_t *tex);
-    uint32_t (*gs_texture_get_width_test)(const gs_texture_t *tex);
-    uint32_t (*gs_texture_get_height_obstest)(const gs_texture_t *tex);
-    enum gs_color_format (*gs_texture_get_color_format_obstest)(
+	void     (*gs_texture_destroy)(gs_texture_t *tex);
+	uint32_t (*gs_texture_get_width)(const gs_texture_t *tex);
+	uint32_t (*gs_texture_get_height)(const gs_texture_t *tex);
+	enum gs_color_format (*gs_texture_get_color_format)(
 			const gs_texture_t *tex);
-    bool     (*gs_texture_map_obstest)(gs_texture_t *tex, uint8_t **ptr,
+	bool     (*gs_texture_map)(gs_texture_t *tex, uint8_t **ptr,
 			uint32_t *linesize);
-    void     (*gs_texture_unmap_obstest)(gs_texture_t *tex);
+	void     (*gs_texture_unmap)(gs_texture_t *tex);
 	bool     (*gs_texture_is_rect)(const gs_texture_t *tex);
-    void    *(*gs_texture_get_obj_obstest)(const gs_texture_t *tex);
+	void    *(*gs_texture_get_obj)(const gs_texture_t *tex);
 
-    void     (*gs_cubetexture_destroy_obstest)(gs_texture_t *cubetex);
-    uint32_t (*gs_cubetexture_get_size_obstest)(const gs_texture_t *cubetex);
-    enum gs_color_format (*gs_cubetexture_get_color_format_obstest)(
+	void     (*gs_cubetexture_destroy)(gs_texture_t *cubetex);
+	uint32_t (*gs_cubetexture_get_size)(const gs_texture_t *cubetex);
+	enum gs_color_format (*gs_cubetexture_get_color_format)(
 			const gs_texture_t *cubetex);
 
-    void     (*gs_voltexture_destroy_obstest)(gs_texture_t *voltex);
-    uint32_t (*gs_voltexture_get_width_obstest)(const gs_texture_t *voltex);
-    uint32_t (*gs_voltexture_get_height_obstest)(const gs_texture_t *voltex);
-    uint32_t (*gs_voltexture_get_depth_obstest)(const gs_texture_t *voltex);
-    enum gs_color_format (*gs_voltexture_get_color_format_obstest)(
+	void     (*gs_voltexture_destroy)(gs_texture_t *voltex);
+	uint32_t (*gs_voltexture_get_width)(const gs_texture_t *voltex);
+	uint32_t (*gs_voltexture_get_height)(const gs_texture_t *voltex);
+	uint32_t (*gs_voltexture_get_depth)(const gs_texture_t *voltex);
+	enum gs_color_format (*gs_voltexture_get_color_format)(
 			const gs_texture_t *voltex);
 
-    void     (*gs_stagesurface_destroy_obstest)(gs_stagesurf_t *stagesurf);
-    uint32_t (*gs_stagesurface_get_width_obstest)(const gs_stagesurf_t *stagesurf);
-    uint32_t (*gs_stagesurface_get_height_obstest)(const gs_stagesurf_t *stagesurf);
-    enum gs_color_format (*gs_stagesurface_get_color_format_obstest)(
+	void     (*gs_stagesurface_destroy)(gs_stagesurf_t *stagesurf);
+	uint32_t (*gs_stagesurface_get_width)(const gs_stagesurf_t *stagesurf);
+	uint32_t (*gs_stagesurface_get_height)(const gs_stagesurf_t *stagesurf);
+	enum gs_color_format (*gs_stagesurface_get_color_format)(
 			const gs_stagesurf_t *stagesurf);
-    bool     (*gs_stagesurface_map_obstest)(gs_stagesurf_t *stagesurf,
+	bool     (*gs_stagesurface_map)(gs_stagesurf_t *stagesurf,
 			uint8_t **data, uint32_t *linesize);
-    void     (*gs_stagesurface_unmap_obstest)(gs_stagesurf_t *stagesurf);
+	void     (*gs_stagesurface_unmap)(gs_stagesurf_t *stagesurf);
 
-    void (*gs_zstencil_destroy_obstest)(gs_zstencil_t *zstencil);
+	void (*gs_zstencil_destroy)(gs_zstencil_t *zstencil);
 
-    void (*gs_samplerstate_destroy_obstest)(gs_samplerstate_t *samplerstate);
+	void (*gs_samplerstate_destroy)(gs_samplerstate_t *samplerstate);
 
-    void (*gs_vertexbuffer_destroy_obstest)(gs_vertbuffer_t *vertbuffer);
-    void (*gs_vertexbuffer_flush_obstest)(gs_vertbuffer_t *vertbuffer);
-    struct gs_vb_data *(*gs_vertexbuffer_get_data_obstest)(
+	void (*gs_vertexbuffer_destroy)(gs_vertbuffer_t *vertbuffer);
+	void (*gs_vertexbuffer_flush)(gs_vertbuffer_t *vertbuffer);
+	struct gs_vb_data *(*gs_vertexbuffer_get_data)(
 			const gs_vertbuffer_t *vertbuffer);
 
-    void   (*gs_indexbuffer_destroy_obstest)(gs_indexbuffer_t *indexbuffer);
-    void   (*gs_indexbuffer_flush_obstest)(gs_indexbuffer_t *indexbuffer);
-    void  *(*gs_indexbuffer_get_data_obstest)(const gs_indexbuffer_t *indexbuffer);
-    size_t (*gs_indexbuffer_get_num_indices_obstest)(
+	void   (*gs_indexbuffer_destroy)(gs_indexbuffer_t *indexbuffer);
+	void   (*gs_indexbuffer_flush)(gs_indexbuffer_t *indexbuffer);
+	void  *(*gs_indexbuffer_get_data)(const gs_indexbuffer_t *indexbuffer);
+	size_t (*gs_indexbuffer_get_num_indices)(
 			const gs_indexbuffer_t *indexbuffer);
-    enum gs_index_type (*gs_indexbuffer_get_type_obstest)(
+	enum gs_index_type (*gs_indexbuffer_get_type)(
 			const gs_indexbuffer_t *indexbuffer);
 
-    void (*gs_shader_destroy_obstest)(gs_shader_t *shader);
-    int (*gs_shader_get_num_params_obstest)(const gs_shader_t *shader);
-    gs_sparam_t *(*gs_shader_get_param_by_idx_obstest)(gs_shader_t *shader,
+	void (*gs_shader_destroy)(gs_shader_t *shader);
+	int (*gs_shader_get_num_params)(const gs_shader_t *shader);
+	gs_sparam_t *(*gs_shader_get_param_by_idx)(gs_shader_t *shader,
 			uint32_t param);
-    gs_sparam_t *(*gs_shader_get_param_by_name_obstest)(gs_shader_t *shader,
+	gs_sparam_t *(*gs_shader_get_param_by_name)(gs_shader_t *shader,
 			const char *name);
-    gs_sparam_t *(*gs_shader_get_viewproj_matrix_obstest)(
+	gs_sparam_t *(*gs_shader_get_viewproj_matrix)(
 			const gs_shader_t *shader);
-    gs_sparam_t *(*gs_shader_get_world_matrix_obstest)(const gs_shader_t *shader);
-    void (*gs_shader_get_param_info_obstest)(const gs_sparam_t *param,
+	gs_sparam_t *(*gs_shader_get_world_matrix)(const gs_shader_t *shader);
+	void (*gs_shader_get_param_info)(const gs_sparam_t *param,
 			struct gs_shader_param_info *info);
-    void (*gs_shader_set_bool_obstest)(gs_sparam_t *param, bool val);
-    void (*gs_shader_set_float_obstest)(gs_sparam_t *param, float val);
-    void (*gs_shader_set_int_obstest)(gs_sparam_t *param, int val);
-    void (*gs_shader_set_matrix3_obstest)(gs_sparam_t *param,
+	void (*gs_shader_set_bool)(gs_sparam_t *param, bool val);
+	void (*gs_shader_set_float)(gs_sparam_t *param, float val);
+	void (*gs_shader_set_int)(gs_sparam_t *param, int val);
+	void (*gs_shader_set_matrix3)(gs_sparam_t *param,
 			const struct matrix3 *val);
-    void (*gs_shader_set_matrix4_obstest)(gs_sparam_t *param,
+	void (*gs_shader_set_matrix4)(gs_sparam_t *param,
 			const struct matrix4 *val);
-    void (*gs_shader_set_vec2_obstest)(gs_sparam_t *param, const struct vec2 *val);
-    void (*gs_shader_set_vec3_obstest)(gs_sparam_t *param, const struct vec3 *val);
-    void (*gs_shader_set_vec4_obstest)(gs_sparam_t *param, const struct vec4 *val);
-    void (*gs_shader_set_texture_obstest)(gs_sparam_t *param, gs_texture_t *val);
-    void (*gs_shader_set_val_obstest)(gs_sparam_t *param, const void *val,
+	void (*gs_shader_set_vec2)(gs_sparam_t *param, const struct vec2 *val);
+	void (*gs_shader_set_vec3)(gs_sparam_t *param, const struct vec3 *val);
+	void (*gs_shader_set_vec4)(gs_sparam_t *param, const struct vec4 *val);
+	void (*gs_shader_set_texture)(gs_sparam_t *param, gs_texture_t *val);
+	void (*gs_shader_set_val)(gs_sparam_t *param, const void *val,
 			size_t size);
-    void (*gs_shader_set_default_obstest)(gs_sparam_t *param);
-    void (*gs_shader_set_next_sampler_obstest)(gs_sparam_t *param,
+	void (*gs_shader_set_default)(gs_sparam_t *param);
+	void (*gs_shader_set_next_sampler)(gs_sparam_t *param,
 			gs_samplerstate_t *sampler);
 
 #ifdef __APPLE__
@@ -244,16 +244,16 @@ struct gs_exports {
 
 	gs_duplicator_t *(*device_duplicator_create)(gs_device_t *device,
 			int monitor_idx);
-    void (*gs_duplicator_destroy_obstest)(gs_duplicator_t *duplicator);
+	void (*gs_duplicator_destroy)(gs_duplicator_t *duplicator);
 
-    bool (*gs_duplicator_update_frame_obstest)(gs_duplicator_t *duplicator);
-    gs_texture_t *(*gs_duplicator_get_texture_obstest)(gs_duplicator_t *duplicator);
+	bool (*gs_duplicator_update_frame)(gs_duplicator_t *duplicator);
+	gs_texture_t *(*gs_duplicator_get_texture)(gs_duplicator_t *duplicator);
 
 	gs_texture_t *(*device_texture_create_gdi)(gs_device_t *device,
 			uint32_t width, uint32_t height);
 
-    void *(*gs_texture_get_dc_obstest)(gs_texture_t *gdi_tex);
-    void (*gs_texture_release_dc_obstest)(gs_texture_t *gdi_tex);
+	void *(*gs_texture_get_dc)(gs_texture_t *gdi_tex);
+	void (*gs_texture_release_dc)(gs_texture_t *gdi_tex);
 
 	gs_texture_t *(*device_texture_open_shared)(gs_device_t *device,
 				uint32_t handle);

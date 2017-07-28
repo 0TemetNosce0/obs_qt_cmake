@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.12)
 
-project(obs-vp)
+project(obs-studio)
 #如果用户没有定义过BUILD_CAPTIONS,那我BUILD_CAPTIONS的默认值就是FALSE,如果用户在命令行显示改变过BUILD_CAPTIONS的值比如为TRUE,那么在脚本中BUILD_CAPTIONS的值就是TURE。
 option(BUILD_CAPTIONS "Build captions" FALSE)
 #set (DISABLE_UI ON CACHE FORCE)

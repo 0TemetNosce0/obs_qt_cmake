@@ -630,7 +630,6 @@ int device_create(gs_device_t **p_device, uint32_t adapter)
 
 void device_destroy(gs_device_t *device)
 {
-    printf("qqqqqq2  gs_destroy");
 	delete device;
 }
 
@@ -1731,7 +1730,7 @@ void device_projection_pop(gs_device_t *device)
 	device->projStack.pop_back();
 }
 
-void gs_swapchain_destroy_obstest(gs_swapchain_t *swapchain)
+void gs_swapchain_destroy(gs_swapchain_t *swapchain)
 {
 	if (swapchain->device->curSwapChain == swapchain)
 		device_load_swapchain(swapchain->device, nullptr);
@@ -1739,13 +1738,12 @@ void gs_swapchain_destroy_obstest(gs_swapchain_t *swapchain)
 	delete swapchain;
 }
 
-void gs_texture_destroy_obstest(gs_texture_t *tex)
+void gs_texture_destroy(gs_texture_t *tex)
 {
-    printf("33333321 gs_texture_destroy\n");
 	delete tex;
 }
 
-uint32_t gs_texture_get_width_test(const gs_texture_t *tex)
+uint32_t gs_texture_get_width(const gs_texture_t *tex)
 {
 	if (tex->type != GS_TEXTURE_2D)
 		return 0;
@@ -1753,7 +1751,7 @@ uint32_t gs_texture_get_width_test(const gs_texture_t *tex)
 	return static_cast<const gs_texture_2d*>(tex)->width;
 }
 
-uint32_t gs_texture_get_height_obstest(const gs_texture_t *tex)
+uint32_t gs_texture_get_height(const gs_texture_t *tex)
 {
 	if (tex->type != GS_TEXTURE_2D)
 		return 0;
@@ -1761,7 +1759,7 @@ uint32_t gs_texture_get_height_obstest(const gs_texture_t *tex)
 	return static_cast<const gs_texture_2d*>(tex)->height;
 }
 
-enum gs_color_format gs_texture_get_color_format_obstest(const gs_texture_t *tex)
+enum gs_color_format gs_texture_get_color_format(const gs_texture_t *tex)
 {
 	if (tex->type != GS_TEXTURE_2D)
 		return GS_UNKNOWN;
@@ -1769,7 +1767,7 @@ enum gs_color_format gs_texture_get_color_format_obstest(const gs_texture_t *tex
 	return static_cast<const gs_texture_2d*>(tex)->format;
 }
 
-bool gs_texture_map_obstest(gs_texture_t *tex, uint8_t **ptr, uint32_t *linesize)
+bool gs_texture_map(gs_texture_t *tex, uint8_t **ptr, uint32_t *linesize)
 {
 	HRESULT hr;
 
@@ -1789,7 +1787,7 @@ bool gs_texture_map_obstest(gs_texture_t *tex, uint8_t **ptr, uint32_t *linesize
 	return true;
 }
 
-void gs_texture_unmap_obstest(gs_texture_t *tex)
+void gs_texture_unmap(gs_texture_t *tex)
 {
 	if (tex->type != GS_TEXTURE_2D)
 		return;
@@ -1798,7 +1796,7 @@ void gs_texture_unmap_obstest(gs_texture_t *tex)
 	tex2d->device->context->Unmap(tex2d->texture, 0);
 }
 
-void *gs_texture_get_obj_obstest(gs_texture_t *tex)
+void *gs_texture_get_obj(gs_texture_t *tex)
 {
 	if (tex->type != GS_TEXTURE_2D)
 		return nullptr;
@@ -1808,12 +1806,12 @@ void *gs_texture_get_obj_obstest(gs_texture_t *tex)
 }
 
 
-void gs_cubetexture_destroy_obstest(gs_texture_t *cubetex)
+void gs_cubetexture_destroy(gs_texture_t *cubetex)
 {
 	delete cubetex;
 }
 
-uint32_t gs_cubetexture_get_size_obstest(const gs_texture_t *cubetex)
+uint32_t gs_cubetexture_get_size(const gs_texture_t *cubetex)
 {
 	if (cubetex->type != GS_TEXTURE_CUBE)
 		return 0;
@@ -1822,7 +1820,7 @@ uint32_t gs_cubetexture_get_size_obstest(const gs_texture_t *cubetex)
 	return tex->width;
 }
 
-enum gs_color_format gs_cubetexture_get_color_format_obstest(
+enum gs_color_format gs_cubetexture_get_color_format(
 		const gs_texture_t *cubetex)
 {
 	if (cubetex->type != GS_TEXTURE_CUBE)
@@ -1833,33 +1831,33 @@ enum gs_color_format gs_cubetexture_get_color_format_obstest(
 }
 
 
-void gs_voltexture_destroy_obstest(gs_texture_t *voltex)
+void gs_voltexture_destroy(gs_texture_t *voltex)
 {
 	delete voltex;
 }
 
-uint32_t gs_voltexture_get_width_obstest(const gs_texture_t *voltex)
+uint32_t gs_voltexture_get_width(const gs_texture_t *voltex)
 {
 	/* TODO */
 	UNUSED_PARAMETER(voltex);
 	return 0;
 }
 
-uint32_t gs_voltexture_get_height_obstest(const gs_texture_t *voltex)
+uint32_t gs_voltexture_get_height(const gs_texture_t *voltex)
 {
 	/* TODO */
 	UNUSED_PARAMETER(voltex);
 	return 0;
 }
 
-uint32_t gs_voltexture_get_depth_obstest(const gs_texture_t *voltex)
+uint32_t gs_voltexture_get_depth(const gs_texture_t *voltex)
 {
 	/* TODO */
 	UNUSED_PARAMETER(voltex);
 	return 0;
 }
 
-enum gs_color_format gs_voltexture_get_color_format_obstest(const gs_texture_t *voltex)
+enum gs_color_format gs_voltexture_get_color_format(const gs_texture_t *voltex)
 {
 	/* TODO */
 	UNUSED_PARAMETER(voltex);
@@ -1867,28 +1865,28 @@ enum gs_color_format gs_voltexture_get_color_format_obstest(const gs_texture_t *
 }
 
 
-void gs_stagesurface_destroy_obstest(gs_stagesurf_t *stagesurf)
+void gs_stagesurface_destroy(gs_stagesurf_t *stagesurf)
 {
 	delete stagesurf;
 }
 
-uint32_t gs_stagesurface_get_width_obstest(const gs_stagesurf_t *stagesurf)
+uint32_t gs_stagesurface_get_width(const gs_stagesurf_t *stagesurf)
 {
 	return stagesurf->width;
 }
 
-uint32_t gs_stagesurface_get_height_obstest(const gs_stagesurf_t *stagesurf)
+uint32_t gs_stagesurface_get_height(const gs_stagesurf_t *stagesurf)
 {
 	return stagesurf->height;
 }
 
-enum gs_color_format gs_stagesurface_get_color_format_obstest(
+enum gs_color_format gs_stagesurface_get_color_format(
 		const gs_stagesurf_t *stagesurf)
 {
 	return stagesurf->format;
 }
 
-bool gs_stagesurface_map_obstest(gs_stagesurf_t *stagesurf, uint8_t **data,
+bool gs_stagesurface_map(gs_stagesurf_t *stagesurf, uint8_t **data,
 		uint32_t *linesize)
 {
 	D3D11_MAPPED_SUBRESOURCE map;
@@ -1901,19 +1899,19 @@ bool gs_stagesurface_map_obstest(gs_stagesurf_t *stagesurf, uint8_t **data,
 	return true;
 }
 
-void gs_stagesurface_unmap_obstest(gs_stagesurf_t *stagesurf)
+void gs_stagesurface_unmap(gs_stagesurf_t *stagesurf)
 {
 	stagesurf->device->context->Unmap(stagesurf->texture, 0);
 }
 
 
-void gs_zstencil_destroy_obstest(gs_zstencil_t *zstencil)
+void gs_zstencil_destroy(gs_zstencil_t *zstencil)
 {
 	delete zstencil;
 }
 
 
-void gs_samplerstate_destroy_obstest(gs_samplerstate_t *samplerstate)
+void gs_samplerstate_destroy(gs_samplerstate_t *samplerstate)
 {
 	if (!samplerstate)
 		return;
@@ -1928,14 +1926,14 @@ void gs_samplerstate_destroy_obstest(gs_samplerstate_t *samplerstate)
 }
 
 
-void gs_vertexbuffer_destroy_obstest(gs_vertbuffer_t *vertbuffer)
+void gs_vertexbuffer_destroy(gs_vertbuffer_t *vertbuffer)
 {
 	if (vertbuffer && vertbuffer->device->lastVertexBuffer == vertbuffer)
 		vertbuffer->device->lastVertexBuffer = nullptr;
 	delete vertbuffer;
 }
 
-void gs_vertexbuffer_flush_obstest(gs_vertbuffer_t *vertbuffer)
+void gs_vertexbuffer_flush(gs_vertbuffer_t *vertbuffer)
 {
 	if (!vertbuffer->dynamic) {
 		blog(LOG_ERROR, "gs_vertexbuffer_flush: vertex buffer is "
@@ -1965,18 +1963,18 @@ void gs_vertexbuffer_flush_obstest(gs_vertbuffer_t *vertbuffer)
 	}
 }
 
-struct gs_vb_data *gs_vertexbuffer_get_data_obstest(const gs_vertbuffer_t *vertbuffer)
+struct gs_vb_data *gs_vertexbuffer_get_data(const gs_vertbuffer_t *vertbuffer)
 {
 	return vertbuffer->vbd.data;
 }
 
 
-void gs_indexbuffer_destroy_obstest(gs_indexbuffer_t *indexbuffer)
+void gs_indexbuffer_destroy(gs_indexbuffer_t *indexbuffer)
 {
 	delete indexbuffer;
 }
 
-void gs_indexbuffer_flush_obstest(gs_indexbuffer_t *indexbuffer)
+void gs_indexbuffer_flush(gs_indexbuffer_t *indexbuffer)
 {
 	HRESULT hr;
 
@@ -1995,17 +1993,17 @@ void gs_indexbuffer_flush_obstest(gs_indexbuffer_t *indexbuffer)
 	indexbuffer->device->context->Unmap(indexbuffer->indexBuffer, 0);
 }
 
-void *gs_indexbuffer_get_data_obstest(const gs_indexbuffer_t *indexbuffer)
+void *gs_indexbuffer_get_data(const gs_indexbuffer_t *indexbuffer)
 {
 	return indexbuffer->indices.data;
 }
 
-size_t gs_indexbuffer_get_num_indices_obstest(const gs_indexbuffer_t *indexbuffer)
+size_t gs_indexbuffer_get_num_indices(const gs_indexbuffer_t *indexbuffer)
 {
 	return indexbuffer->num;
 }
 
-enum gs_index_type gs_indexbuffer_get_type_obstest(const gs_indexbuffer_t *indexbuffer)
+enum gs_index_type gs_indexbuffer_get_type(const gs_indexbuffer_t *indexbuffer)
 {
 	return indexbuffer->type;
 }
@@ -2050,7 +2048,7 @@ static inline bool TextureGDICompatible(gs_texture_2d *tex2d, const char *func)
 	return true;
 }
 
-extern "C" EXPORT void *gs_texture_get_dc_obstest(gs_texture_t *tex)
+extern "C" EXPORT void *gs_texture_get_dc(gs_texture_t *tex)
 {
 	HDC hDC = nullptr;
 
@@ -2068,7 +2066,7 @@ extern "C" EXPORT void *gs_texture_get_dc_obstest(gs_texture_t *tex)
 	return hDC;
 }
 
-extern "C" EXPORT void gs_texture_release_dc_obstest(gs_texture_t *tex)
+extern "C" EXPORT void gs_texture_release_dc(gs_texture_t *tex)
 {
 	if (tex->type != GS_TEXTURE_2D)
 		return;
