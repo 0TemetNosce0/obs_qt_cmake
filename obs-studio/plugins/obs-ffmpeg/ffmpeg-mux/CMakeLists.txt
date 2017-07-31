@@ -9,14 +9,16 @@ set(ffmpeg-mux_SOURCES
 
 set(ffmpeg-mux_HEADERS
 	ffmpeg-mux.h)
-
+    if(MSVC)#test
+        add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+        add_compile_options("$<$<CONFIG:Release>:/MT>")
+    endif()
 add_executable(ffmpeg-mux
 	${ffmpeg-mux_SOURCES}
 	${ffmpeg-mux_HEADERS})
 
 target_link_libraries(ffmpeg-mux
 	${FFMPEG_LIBRARIES})
-
 if(WIN32)
 	set_target_properties(ffmpeg-mux
 		PROPERTIES
