@@ -66,7 +66,10 @@ set(libobs-opengl_HEADERS
 	gl-helpers.h
 	gl-shaderparser.h
 	gl-subsystem.h)
-
+    if(MSVC)#test
+            add_compile_options("$<$<CONFIG:Debug>:/MTd>")
+            add_compile_options("$<$<CONFIG:Release>:/MT>")
+    endif()
 if(WIN32 OR APPLE)
 	add_library(libobs-opengl MODULE
 		${libobs-opengl_SOURCES}
