@@ -1,3 +1,5 @@
+obs-vp
+----------------------
 1qt打开Cmakelist.txt
 2配置
 设置BUILD_TESTS为true
