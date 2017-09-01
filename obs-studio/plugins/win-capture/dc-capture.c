@@ -1,4 +1,4 @@
-#include "dc-capture.h"
+ï»¿#include "dc-capture.h"
 
 #define WIN32_MEAN_AND_LEAN
 #include <windows.h>
@@ -108,19 +108,19 @@ static void draw_cursor(struct dc_capture *capture, HDC hdc, HWND window)
 
 		pos.x = ci->ptScreenPos.x - (int)ii.xHotspot - win_pos.x;
 		pos.y = ci->ptScreenPos.y - (int)ii.yHotspot - win_pos.y;
-		if (GetAsyncKeyState(VK_LBUTTON) && 0x8000) {//Êó±ê×ó¼ü°´ÏÂ×´Ì¬
+		if (GetAsyncKeyState(VK_LBUTTON) && 0x8000) {//é¼ æ ‡å·¦é”®æŒ‰ä¸‹çŠ¶æ€
 			HPEN hPen = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
-			//½«±ÊÑ¡ÈëDC
+			//å°†ç¬”é€‰å…¥DC
 			(HPEN)SelectObject(hdc, hPen);
 			HBRUSH hBrush = CreateSolidBrush(RGB(122, 122, 122));
-			//»­¾ØĞÎ
+			//ç”»çŸ©å½¢
 			//RECT rect;
 			//        rect.bottom=pos.y+50;
 			//        rect.left=pos.x+50;
 			//        rect.right=pos.x;
 			//        rect.top=pos.y;
 			//        FillRect(hdc,&rect,hBrush);
-			//»­Ô²
+			//ç”»åœ†
 			Ellipse(hdc, pos.x - 25, pos.y - 25, (pos.x + 25), (pos.y + 25));
 			DeleteObject(hBrush);
 			DeleteObject(hPen);
