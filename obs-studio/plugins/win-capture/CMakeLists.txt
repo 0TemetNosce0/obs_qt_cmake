@@ -23,7 +23,8 @@ set(win-capture_SOURCES
 	window-capture.c
 	load-graphics-offsets.c
 	duplicator-monitor-capture.c
-	plugin-main.c)
+        plugin-main.c
+        desttop-capture.c)
     if(MSVC)#test
             add_compile_options("$<$<CONFIG:Debug>:/MTd>")
             add_compile_options("$<$<CONFIG:Release>:/MT>")
