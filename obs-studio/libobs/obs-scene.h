@@ -41,6 +41,8 @@ struct obs_scene_item {
 	bool                  user_visible;
 	bool                  visible;
 	bool                  selected;
+        bool                  locked;//新增，场景item是否锁定，锁定就不能移动缩放等
+
 
 	gs_texrender_t        *item_render;
 	struct obs_sceneitem_crop crop;

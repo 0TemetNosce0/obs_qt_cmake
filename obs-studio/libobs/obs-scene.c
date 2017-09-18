@@ -1490,7 +1490,27 @@ bool obs_sceneitem_selected(const obs_sceneitem_t *item)
 {
 	return item ? item->selected : false;
 }
+//新增 锁定
+bool obs_sceneitem_locked(const obs_sceneitem_t *item)
+{
+    return item ? item->locked : false;
+}
 
+bool obs_sceneitem_set_locked(obs_sceneitem_t *item, bool lock)
+{
+    if (!item)
+        return false;
+
+    if (item->locked == lock)
+        return false;
+
+    if (!item->parent)
+        return false;
+
+    item->locked = lock;
+
+    return true;
+}
 void obs_sceneitem_set_pos(obs_sceneitem_t *item, const struct vec2 *pos)
 {
 	if (item) {
