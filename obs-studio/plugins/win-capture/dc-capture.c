@@ -115,14 +115,14 @@ static void draw_cursor(struct dc_capture *capture, HDC hdc, HWND window)
             (HPEN)SelectObject(hdc,hPen);
             HBRUSH hBrush=CreateSolidBrush(RGB(122,122,122));
             //画矩形
-            RECT rect;
-                    rect.bottom=pos.y+50;
-                    rect.left=pos.x+50;
-                    rect.right=pos.x;
-                    rect.top=pos.y;
-                    FillRect(hdc,&rect,hBrush);
+//            RECT rect;
+//                    rect.bottom=pos.y+50;
+//                    rect.left=pos.x+50;
+//                    rect.right=pos.x;
+//                    rect.top=pos.y;
+//                    FillRect(hdc,&rect,hBrush);
             //画圆
-            //Ellipse(hdc,pos.x-25,pos.y-25,(pos.x+25),(pos.y+25));
+            Ellipse(hdc,pos.x-25,pos.y-25,(pos.x+25),(pos.y+25));
             DeleteObject(hBrush);
             DeleteObject(hPen);
         }
@@ -138,10 +138,10 @@ static void draw_cursor(struct dc_capture *capture, HDC hdc, HWND window)
         //HBRUSH hBrush = CreateSolidBrush(RGB(122, 122, 122));
         ////画矩形
         //RECT rect;
-        //rect.bottom = rect1.bottom-250;
-        //rect.left = rect1.left+180;
-        //rect.right = rect1.right-180;
-        //rect.top = rect1.top+70;
+        //rect.bottom = rect.bottom-250;
+        //rect.left = rect.left+180;
+        //rect.right = rect.right-180;
+        //rect.top = rect.top+70;
         //FillRect(hdc, &rect, hBrush);
         ////画圆
         ////Ellipse(hdc,pos.x-25,pos.y-25,(pos.x+25),(pos.y+25));
@@ -179,7 +179,7 @@ static inline void dc_capture_release_dc(struct dc_capture *capture)
 }
 
 //桌面鼠标跟随
-void desktop_capture_capture(struct dc_capture *capture,bool b)
+void desktop_capture_capture(struct dc_capture *capture,int b)
 {
     HDC hdc_target;
     HDC hdc;
@@ -203,39 +203,50 @@ void desktop_capture_capture(struct dc_capture *capture,bool b)
     TCHAR strWndName[128] = { 0 };
     BOOL  bQQWnd = FALSE;
     BOOL  bDrawCursor = TRUE;
-    if(b){//鼠标中间捕获
+    if(b==1){//鼠标中间捕获
+
         hdc_target = GetDC(NULL);
+        BitBlt(hdc, 0, 0, capture->width, capture->height,
+               hdc_target, capture->x, capture->y, SRCCOPY);
+    if (capture->cursor_captured&&bDrawCursor)
+//        DrawIcon(hdc, capture->ci.ptScreenPos.x, capture->ci.ptScreenPos.y, capture->ci.hCursor);
+        draw_cursor(capture, hdc, GetDesktopWindow());
+    }
+	else if (b == 2) {
+		if (capture->cursor_captured && !capture->cursor_hidden)
+		    draw_cursor(capture, hdc, NULL);
+		        hdc_target = GetDC(NULL);
 
-        int xpos = capture->ci.ptScreenPos.x - capture->width / 2;
-        int ypos = capture->ci.ptScreenPos.y - capture->height / 2;
+		        int xpos = capture->ci.ptScreenPos.x - capture->width / 2;
+		        int ypos = capture->ci.ptScreenPos.y - capture->height / 2;
 
-        int nscreenwidth = GetDeviceCaps(hdc_target, HORZRES);
-        int nscreenheight = GetDeviceCaps(hdc_target, VERTRES);
+		        int nscreenwidth = GetDeviceCaps(hdc_target, HORZRES);
+		        int nscreenheight = GetDeviceCaps(hdc_target, VERTRES);
 
-        if (xpos <= 0)
-            xpos = 0;
-        else if (nscreenwidth - capture->ci.ptScreenPos.x < capture->width / 2)
-            xpos = nscreenwidth - capture->width;
+		        if (xpos <= 0)
+		            xpos = 0;
+		        else if (nscreenwidth - capture->ci.ptScreenPos.x < capture->width / 2)
+		            xpos = nscreenwidth - capture->width;
 
-        if (ypos <= 0)
-            ypos = 0;
-        else if (nscreenheight - capture->ci.ptScreenPos.y < capture->height / 2)
-            ypos = nscreenheight - capture->height;
+		        if (ypos <= 0)
+		            ypos = 0;
+		        else if (nscreenheight - capture->ci.ptScreenPos.y < capture->height / 2)
+		            ypos = nscreenheight - capture->height;
 
-        if (hdc_target)
-        {
-            if (!BitBlt(hdc, 0, 0, capture->width, capture->height, hdc_target, xpos, ypos, SRCCOPY))
-            {
-                blog(LOG_WARNING, "[dc_capture_capture] Failed to get BitBlt");
-            }
-            if (capture->cursor_captured&&bDrawCursor)
-                DrawIcon(hdc, capture->ci.ptScreenPos.x - xpos, capture->ci.ptScreenPos.y - ypos, capture->ci.hCursor);
-        }
-        else
-        {
-            blog(LOG_WARNING, "[dc_capture_capture] Failed to get GetDC");
-        }
-    }else{//鼠标边缘
+		        if (hdc_target)
+		        {
+		            if (!BitBlt(hdc, 0, 0, capture->width, capture->height, hdc_target, xpos, ypos, SRCCOPY))
+		            {
+		                blog(LOG_WARNING, "[dc_capture_capture] Failed to get BitBlt");
+		            }
+		            if (capture->cursor_captured&&bDrawCursor)
+		                DrawIcon(hdc, capture->ci.ptScreenPos.x - xpos, capture->ci.ptScreenPos.y - ypos, capture->ci.hCursor);
+		        }
+		        else
+		        {
+		            blog(LOG_WARNING, "[dc_capture_capture] Failed to get GetDC");
+		        }
+	}else if (b == 3) {//鼠标边缘
         hdc_target = GetDC(NULL);
 
         int xpos = capture->ci.ptScreenPos.x;//当前鼠标屏幕位置
