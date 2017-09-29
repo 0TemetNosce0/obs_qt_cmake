@@ -295,7 +295,7 @@ EXPORT profiler_name_store_t *obs_get_profiler_name_store(void);
  *               OBS_VIDEO_FAIL for generic failure
  */
 EXPORT int obs_reset_video(struct obs_video_info *ovi);
-
+EXPORT void obs_stop_video();//TODO dxf
 /**
  * Sets base audio output format/channels/samples/etc
  *

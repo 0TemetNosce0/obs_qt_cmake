@@ -917,6 +917,11 @@ static inline bool size_valid(uint32_t width, uint32_t height)
 	return (width >= OBS_SIZE_MIN && height >= OBS_SIZE_MIN &&
 	        width <= OBS_SIZE_MAX && height <= OBS_SIZE_MAX);
 }
+void obs_stop_video(){
+    stop_video();
+    obs_free_video();
+	return;
+}
 
 int obs_reset_video(struct obs_video_info *ovi)
 {
