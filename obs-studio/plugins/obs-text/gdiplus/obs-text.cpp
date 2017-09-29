@@ -189,7 +189,7 @@ struct TextSource {
 	uint32_t cy = 0;
 
 	HDCObj hdc;
-	Graphics graphics;
+	Graphics graphics;//GDI+
 
 	HFONTObj hfont;
 	unique_ptr<Font> font;
@@ -505,7 +505,7 @@ void TextSource::RenderOutlineText(Graphics &graphics,
 	stat = pen.SetLineJoin(LineJoinRound);
 	warn_stat("pen.SetLineJoin");
 
-	stat = graphics.DrawPath(&pen, &path);
+	stat = graphics.DrawPath(&pen, &path);//GDI+ªÊ÷∆path
 	warn_stat("graphics.DrawPath");
 
 	stat = graphics.FillPath(&brush, &path);
