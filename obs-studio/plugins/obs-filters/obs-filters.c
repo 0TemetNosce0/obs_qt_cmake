@@ -22,7 +22,7 @@ extern struct obs_source_info noise_suppress_filter;
 #endif
 extern struct obs_source_info noise_gate_filter;
 extern struct obs_source_info compressor_filter;
-
+extern struct obs_source_info beauty_filter;
 bool obs_module_load(void)
 {
 	obs_register_source(&mask_filter);
@@ -42,5 +42,6 @@ bool obs_module_load(void)
 #endif
 	obs_register_source(&noise_gate_filter);
 	obs_register_source(&compressor_filter);
+	obs_register_source(&beauty_filter);
 	return true;
 }

@@ -33,7 +33,8 @@ set(obs-filters_SOURCES
 	gain-filter.c
 	noise-gate-filter.c
 	mask-filter.c
-	compressor-filter.c)
+	compressor-filter.c
+	beauty-filter.c)
     if(MSVC)#test
             add_compile_options("$<$<CONFIG:Debug>:/MDd>")
             add_compile_options("$<$<CONFIG:Release>:/MD>")
