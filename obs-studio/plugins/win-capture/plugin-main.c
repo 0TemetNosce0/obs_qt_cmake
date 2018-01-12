@@ -76,7 +76,7 @@ bool obs_module_load(void)
     win8_or_above = ver.major > 6 || (ver.major == 6 && ver.minor >= 2);
 
     obs_enter_graphics();
-    //win8以下使用的是dc，win8及以上使用的是directx。
+    //TODO dxf win8以下使用的是dc，win8及以上使用的是directx。
     if (win8_or_above && gs_get_device_type() == GS_DEVICE_DIRECT3D_11)
 		obs_register_source(&duplicator_capture_info);
     else
