@@ -685,9 +685,8 @@ static void receive_video(void *param, struct video_data *frame)
 				data->dst_picture.linesize);
 	else
 		copy_data(&data->dst_picture, frame, context->height, context->pix_fmt);
-	//AVFMT_NEEDNUMBER;
-//FF_API_LAVF_FMT_RAWPICTURE;
-	if (data->output->flags & AV_DISPOSITION_KARAOKE/*0x0020*//*AVFMT_RAWPICTURE*/) {//TODO dxf ffmpeg ¸ü»»AVFMT_RAWPICTURE
+
+	if (data->output->flags & 0x0020/*AVFMT_RAWPICTURE*/) {//TODO dxf ffmpeg ¸ü»»AVFMT_RAWPICTURE
 		packet.flags        |= AV_PKT_FLAG_KEY;
 		packet.stream_index  = data->video->index;
 		packet.data          = data->dst_picture.data[0];
