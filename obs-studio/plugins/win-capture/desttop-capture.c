@@ -1,9 +1,20 @@
 ﻿#include <util/dstr.h>
 #include "dc-capture.h"
+/************
+区域录制。
+----------------------------
+鼠标光圈添加demo流程：搜索-鼠标光圈
+mouseAperture;//鼠标光圈
+--------------------------------
+
+
+*************/
+
 //桌面鼠标跟随
 #define TEXT_DESKTOP_NAME obs_module_text("DesktopCapture")
 #define TEXT_CAPTURE_CURSOR  obs_module_text("CaptureCursor")
 #define TEXT_MOVEMODE  obs_module_text("moveMode__")
+#define TEXT_mouseAperture  obs_module_text("mouseApertureXXXXX")
 #define TEXT_COMPATIBILITY   obs_module_text("Compatibility")
 #define TEXT_DESKTOP         obs_module_text("Desktop")
 #define TEXT_PRIMARY_MONITOR obs_module_text("PrimaryMonitor")
@@ -15,12 +26,13 @@ struct desktop_capture {
 	bool              capture_cursor;
     bool              compatibility;//多设配器的兼�?
     int              moveMode;//模式  1 正常 2 鼠标居中 3鼠标边缘移动
-    int               width;
+	bool              mouseAperture;//鼠标光圈  true：显示
+	int               width;
     int               height;
     int                 xPos;
     int                 yPos;
 
-    struct dc_capture data;//dc捕获结构�?
+    struct dc_capture data;//dc捕获结构�?。
 };
 
 struct desktop_info {
@@ -74,19 +86,20 @@ static void update_monitor(struct desktop_capture *capture,	obs_data_t *settings
 //    int xPos = (int)obs_data_get_int(obs_source_get_settings(capture->source), "xPos");
 //    int yPos = (int)obs_data_get_int(obs_source_get_settings(capture->source), "yPos");//不用capture->source的x y。
 
-	//初始化dc_capture
+	//desktop_capture初始化dc_capture结构体的信息
     dc_capture_init(&capture->data,capture->xPos, capture->yPos,
             capture->width, capture->height, capture->capture_cursor,
-            capture->compatibility);
+            capture->compatibility, capture->mouseAperture);
 }
 
-//更新settings
+//settings更新desktop_capture结构体的信息
 static inline void update_settings(struct desktop_capture *capture,	obs_data_t *settings)
 {
 	capture->desttop        = (int)obs_data_get_int(settings, "desktop");
 	capture->capture_cursor = obs_data_get_bool(settings, "capture_cursor");
 	capture->compatibility  = obs_data_get_bool(settings, "compatibility");
     capture->moveMode  = obs_data_get_int(settings, "moveMode");//
+	capture->mouseAperture = obs_data_get_bool(settings, "mouseAperture");//
     capture->width = (int)obs_data_get_int(settings, "Width");
     capture->height = (int)obs_data_get_int(settings, "Height");
     capture->xPos =  (int)obs_data_get_int(settings, "xPos");
@@ -125,6 +138,7 @@ static void desktop_capture_defaults(obs_data_t *settings)
 	obs_data_set_default_bool(settings, "capture_cursor", true);
 	obs_data_set_default_bool(settings, "compatibility", false);
     obs_data_set_default_int(settings, "moveMode",1);//设置默认值
+	obs_data_set_default_bool(settings, "mouseAperture", false);//设置默认值
 }
 
 static void desktop_capture_update(void *data, obs_data_t *settings)
@@ -240,6 +254,7 @@ static obs_properties_t *desktop_capture_properties(void *unused)
 	obs_properties_add_bool(props, "compatibility", TEXT_COMPATIBILITY);
 	obs_properties_add_bool(props, "capture_cursor", TEXT_CAPTURE_CURSOR);
     obs_properties_add_int(props, "moveMode", TEXT_MOVEMODE, 4, 1, 1);//添加窗口显示出来的属性
+	obs_properties_add_bool(props, "mouseAperture", TEXT_mouseAperture);//添加窗口显示出来的属性
     obs_properties_add_int(props, "Width", "w",1000,100,100);
 	obs_properties_add_int(props, "Height", "w", 1000, 100, 100);
     obs_properties_add_int(props, "yPos", "w",1000,100,100);

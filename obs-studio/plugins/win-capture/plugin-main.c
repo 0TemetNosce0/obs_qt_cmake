@@ -67,7 +67,7 @@ bool obs_module_load(void)
 
     config_dir = obs_module_config_path(NULL);
     if (config_dir) {
-        os_mkdirs(config_dir);
+        //os_mkdirs(config_dir);//创建目录，在vp中创建了对应dll名字的目录，暂时没用，去掉，20180205
         bfree(config_dir);
     }
 

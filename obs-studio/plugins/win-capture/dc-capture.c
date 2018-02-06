@@ -26,7 +26,7 @@ static inline void init_textures(struct dc_capture *capture)
 
 void dc_capture_init(struct dc_capture *capture, int x, int y,
                      uint32_t width, uint32_t height, bool cursor,
-                     bool compatibility)
+                     bool compatibility,bool mouseAperture)
 {
     memset(capture, 0, sizeof(struct dc_capture));
 
@@ -35,7 +35,7 @@ void dc_capture_init(struct dc_capture *capture, int x, int y,
     capture->width          = width;
     capture->height         = height;
     capture->capture_cursor = cursor;
-
+	capture->mouseAperture = mouseAperture;//TODO 光圈
     obs_enter_graphics();
 
     if (!gs_gdi_texture_available())
@@ -109,56 +109,59 @@ static void draw_cursor(struct dc_capture *capture, HDC hdc, HWND window)
         pos.x = ci->ptScreenPos.x - (int)ii.xHotspot - win_pos.x;
         pos.y = ci->ptScreenPos.y - (int)ii.yHotspot - win_pos.y;
 
+		
 		//GDI无抗锯齿
 		//TODO dxf 画圆
-		{
-			HPEN hPen = CreatePen(PS_NULL, 1, RGB(0, 255, 0));
-			//将笔选入DC
-			SelectObject(hdc, hPen);
-			HBRUSH hBrush = CreateSolidBrush(RGB(122, 122, 122));
-			SelectObject(hdc, hBrush);
-			Ellipse(hdc, pos.x - 25, pos.y - 25, (pos.x + 25), (pos.y + 25));
-			//SelectObject(hdc, hOldBrush);
-			DeleteObject(hBrush);
-			DeleteObject(hPen);
-		}
-        if (GetAsyncKeyState(VK_LBUTTON)&&0x8000){//鼠标左键按下状态
-            HPEN hPen=CreatePen(PS_SOLID,0,RGB(0,255,0));
-            //将笔选入DC
-            (HPEN)SelectObject(hdc,hPen);
-            //HBRUSH hBrush=CreateSolidBrush(RGB(0,255,0));
-            //画矩形
-//            RECT rect;
-//                    rect.bottom=pos.y+50;
-//                    rect.left=pos.x+50;
-//                    rect.right=pos.x;
-//                    rect.top=pos.y;
-//                    FillRect(hdc,&rect,hBrush);
-            //画圆
-            Ellipse(hdc,pos.x-25,pos.y-25,(pos.x+25),(pos.y+25));
-            //DeleteObject(hBrush);
-            DeleteObject(hPen);
-		} else if (GetAsyncKeyState(VK_RBUTTON) && 0x8000) {//右键按下
-			HPEN hPen = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
-			//将笔选入DC
-			(HPEN)SelectObject(hdc, hPen);
-			//HBRUSH hBrush = CreateSolidBrush(RGB(0, 0, 255));
-			//(HBRUSH)SelectObject(hdc, hBrush);
-			//画矩形
-			//            RECT rect;
-			//                    rect.bottom=pos.y+50;
-			//                    rect.left=pos.x+50;
-			//                    rect.right=pos.x;
-			//                    rect.top=pos.y;
-			//                    FillRect(hdc,&rect,hBrush);
-			//画圆
-			Ellipse(hdc, pos.x - 25, pos.y - 25, (pos.x + 25), (pos.y + 25));
-			//DeleteObject(hBrush);
-			DeleteObject(hPen);
+		if (capture->mouseAperture) {
+			{
+				HPEN hPen = CreatePen(PS_NULL, 1, RGB(0, 255, 0));
+				//将笔选入DC
+				SelectObject(hdc, hPen);
+				HBRUSH hBrush = CreateSolidBrush(RGB(122, 122, 122));
+				SelectObject(hdc, hBrush);
+				Ellipse(hdc, pos.x - 25, pos.y - 25, (pos.x + 25), (pos.y + 25));
+				//SelectObject(hdc, hOldBrush);
+				DeleteObject(hBrush);
+				DeleteObject(hPen);
+			}
+			if (GetAsyncKeyState(VK_LBUTTON) && 0x8000) {//鼠标左键按下状态
+				HPEN hPen = CreatePen(PS_SOLID, 0, RGB(0, 255, 0));
+				//将笔选入DC
+				(HPEN)SelectObject(hdc, hPen);
+				//HBRUSH hBrush=CreateSolidBrush(RGB(0,255,0));
+				//画矩形
+	//            RECT rect;
+	//                    rect.bottom=pos.y+50;
+	//                    rect.left=pos.x+50;
+	//                    rect.right=pos.x;
+	//                    rect.top=pos.y;
+	//                    FillRect(hdc,&rect,hBrush);
+				//画圆
+				Ellipse(hdc, pos.x - 25, pos.y - 25, (pos.x + 25), (pos.y + 25));
+				//DeleteObject(hBrush);
+				DeleteObject(hPen);
+			}
+			else if (GetAsyncKeyState(VK_RBUTTON) && 0x8000) {//右键按下
+				HPEN hPen = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
+				//将笔选入DC
+				(HPEN)SelectObject(hdc, hPen);
+				//HBRUSH hBrush = CreateSolidBrush(RGB(0, 0, 255));
+				//(HBRUSH)SelectObject(hdc, hBrush);
+				//画矩形
+				//            RECT rect;
+				//                    rect.bottom=pos.y+50;
+				//                    rect.left=pos.x+50;
+				//                    rect.right=pos.x;
+				//                    rect.top=pos.y;
+				//                    FillRect(hdc,&rect,hBrush);
+				//画圆
+				Ellipse(hdc, pos.x - 25, pos.y - 25, (pos.x + 25), (pos.y + 25));
+				//DeleteObject(hBrush);
+				DeleteObject(hPen);
+
+			}
 
 		}
-
-
         //HWND my = GetForegroundWindow();
         //RECT rect1;
         //GetWindowRect(my, &rect1);

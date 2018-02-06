@@ -24,6 +24,7 @@ struct dc_capture {
 	bool         capture_cursor;
 	bool         cursor_captured;
 	bool         cursor_hidden;
+	bool         mouseAperture;//TODO π‚»¶
 	CURSORINFO   ci;
 
 	bool         valid;
@@ -31,7 +32,7 @@ struct dc_capture {
 
 extern void dc_capture_init(struct dc_capture *capture, int x, int y,
 		uint32_t width, uint32_t height, bool cursor,
-		bool compatibility);
+		bool compatibility, bool mouseAperture);
 extern void dc_capture_free(struct dc_capture *capture);
 
 extern void dc_capture_capture(struct dc_capture *capture, HWND window);
