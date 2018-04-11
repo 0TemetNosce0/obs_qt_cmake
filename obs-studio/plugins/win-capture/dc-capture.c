@@ -26,7 +26,7 @@ static inline void init_textures(struct dc_capture *capture)
 
 void dc_capture_init(struct dc_capture *capture, int x, int y,
                      uint32_t width, uint32_t height, bool cursor,
-                     bool compatibility,bool mouseAperture)
+                     bool compatibility,bool cursor_aperture)
 {
     memset(capture, 0, sizeof(struct dc_capture));
 
@@ -35,7 +35,7 @@ void dc_capture_init(struct dc_capture *capture, int x, int y,
     capture->width          = width;
     capture->height         = height;
     capture->capture_cursor = cursor;
-	capture->mouseAperture = mouseAperture;//TODO 光圈
+	capture->cursor_aperture = cursor_aperture;//TODO 光圈
     obs_enter_graphics();
 
     if (!gs_gdi_texture_available())
@@ -112,7 +112,7 @@ static void draw_cursor(struct dc_capture *capture, HDC hdc, HWND window)
 		
 		//GDI无抗锯齿
 		//TODO dxf 画圆
-		if (capture->mouseAperture) {
+		if (capture->cursor_aperture) {
 			{
 				HPEN hPen = CreatePen(PS_NULL, 1, RGB(0, 255, 0));
 				//将笔选入DC

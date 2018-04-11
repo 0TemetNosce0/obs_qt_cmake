@@ -25,6 +25,7 @@ struct duplicator_capture {
 	obs_source_t                   *source;
 	int                            monitor;
 	bool                           capture_cursor;
+	bool                           cursor_aperture;//Êó±ê¹âÈ¦
 	bool                           showing;
 
 	long                           x;
@@ -44,6 +45,7 @@ static inline void update_settings(struct duplicator_capture *capture,
 {
 	capture->monitor        = (int)obs_data_get_int(settings, "monitor");
 	capture->capture_cursor = obs_data_get_bool(settings, "capture_cursor");
+	capture->cursor_aperture = obs_data_get_bool(settings, "cursor_aperture");
 
 	obs_enter_graphics();
 
@@ -85,6 +87,7 @@ static void duplicator_capture_defaults(obs_data_t *settings)
 {
 	obs_data_set_default_int(settings, "monitor", 0);
 	obs_data_set_default_bool(settings, "capture_cursor", true);
+	obs_data_set_default_bool(settings, "cursor_aperture", true);
 }
 
 static void duplicator_capture_update(void *data, obs_data_t *settings)
@@ -201,10 +204,10 @@ static uint32_t duplicator_capture_height(void *data)
 
 static void draw_cursor(struct duplicator_capture *capture)
 {
-	cursor_draw(&capture->cursor_data, -capture->x, -capture->y,
+	cursor_or_aperture_draw(&capture->cursor_data, -capture->x, -capture->y,
 		1.0f, 1.0f,
 		capture->rot % 180 == 0 ? capture->width : capture->height,
-		capture->rot % 180 == 0 ? capture->height : capture->width);
+		capture->rot % 180 == 0 ? capture->height : capture->width,capture->cursor_aperture,capture->capture_cursor);
 }
 
 static void duplicator_capture_render(void *data, gs_effect_t *effect)
@@ -253,13 +256,19 @@ static void duplicator_capture_render(void *data, gs_effect_t *effect)
 			gs_matrix_pop();
 	}
 
-	if (capture->capture_cursor) {
+	if (capture->capture_cursor || capture->cursor_aperture) {
 		effect = obs_get_base_effect(OBS_EFFECT_DEFAULT);
 
 		while (gs_effect_loop(effect, "Draw")) {
-			draw_cursor(capture);
+				draw_cursor(capture);
 		}
 	}
+	//if (capture->cursor_aperture) {
+	//	effect = obs_get_base_effect(OBS_EFFECT_DEFAULT);
+	//	while (gs_effect_loop(effect, "Draw")) {
+	//		draw_cursor(capture);
+	//	}
+	//}
 }
 
 static bool get_monitor_props(obs_property_t *monitor_list, int monitor_idx)

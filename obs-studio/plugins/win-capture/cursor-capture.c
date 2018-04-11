@@ -1,6 +1,9 @@
 #include <windows.h>
 #include <obs.h>
 #include "cursor-capture.h"
+#include <graphics/image-file.h>
+#include <stdio.h>
+#include <util/platform.h>
 
 static uint8_t *get_bitmap_data(HBITMAP hbmp, BITMAP *bmp)
 {
@@ -221,6 +224,7 @@ void cursor_draw(struct cursor_data *data, long x_offset, long y_offset,
 		return;
 
 	if (data->visible && !!data->texture) {
+		//鼠标绘制
 		gs_blend_state_push();
 		gs_blend_function(GS_BLEND_SRCALPHA, GS_BLEND_INVSRCALPHA);
 		gs_enable_color(true, true, true, false);
@@ -235,6 +239,76 @@ void cursor_draw(struct cursor_data *data, long x_offset, long y_offset,
 	}
 }
 
+void cursor_or_aperture_draw(struct cursor_data *data, long x_offset, long y_offset,
+	float x_scale, float y_scale, long width, long height,bool cursor_aperture,bool capture_cursor)
+{
+	long x = data->cursor_pos.x + x_offset;
+	long y = data->cursor_pos.y + y_offset;
+	long x_draw = x - data->x_hotspot;
+	long y_draw = y - data->y_hotspot;
+
+	if (x < 0 || x > width || y < 0 || y > height)
+		return;
+
+	if (data->visible && !!data->texture) {
+		if (cursor_aperture) {
+			if (GetAsyncKeyState(VK_LBUTTON) && 0x8000) {//鼠标左键按下状态
+				uint32_t tmp_width = gs_texture_get_width(data->texture) + 20;
+				uint32_t tmp_height = gs_texture_get_height(data->texture) + 20;
+
+				wchar_t path_utf16[MAX_PATH] = { 0 };
+				char      path_utf8[MAX_PATH] = { 0 };
+				char      file_path[MAX_PATH] = { 0 };
+				GetCurrentDirectoryW(MAX_PATH, path_utf16);
+				os_wcs_to_utf8(path_utf16, 0, path_utf8, 256);
+				char*     file_name = "\\rec-data\\png\\circle.png";
+				snprintf(file_path, MAX_PATH, "%s%s", &path_utf8, file_name);
+
+				bool change_pos = (x_draw != 0 || y_draw != 0);
+
+				if (change_pos) {//  绘制位置
+					long x_circle_draw = x_draw - tmp_width / 2;
+					long y_circle_draw = y_draw - tmp_height / 2;
+					gs_matrix_push();
+					gs_matrix_translate3f((float)x_circle_draw, (float)y_circle_draw, 0.0f);
+				}
+
+				//char *file_path = "C:/Users/giga/Pictures/circle.png";
+				gs_image_file_t image;
+				gs_image_file_init(&image, file_path);
+				obs_enter_graphics();
+				gs_image_file_init_texture(&image);
+				obs_leave_graphics();
+
+				gs_effect_t *effect = gs_get_effect();
+				gs_eparam_t *image1;
+				image1 = gs_effect_get_param_by_name(effect, "image");
+				gs_effect_set_texture(image1, image.texture);
+
+
+				gs_draw_sprite(image.texture, 0, tmp_width*x_scale, tmp_height*y_scale);
+				if (change_pos)
+					gs_matrix_pop();
+
+			}
+		}
+		if (capture_cursor) {
+			//鼠标绘制
+			gs_blend_state_push();
+			gs_blend_function(GS_BLEND_SRCALPHA, GS_BLEND_INVSRCALPHA);
+			gs_enable_color(true, true, true, false);
+
+			gs_matrix_push();
+			gs_matrix_scale3f(x_scale, y_scale, 1.0f);
+			obs_source_draw(data->texture, x_draw, y_draw, 0, 0, false);
+			gs_matrix_pop();
+
+			gs_enable_color(true, true, true, true);
+			gs_blend_state_pop();
+
+		}
+	}
+}
 void cursor_data_free(struct cursor_data *data)
 {
 	for (size_t i = 0; i < data->cached_textures.num; i++) {
