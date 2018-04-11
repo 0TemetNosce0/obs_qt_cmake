@@ -110,7 +110,7 @@ static void draw_cursor(struct dc_capture *capture, HDC hdc, HWND window)
         pos.y = ci->ptScreenPos.y - (int)ii.yHotspot - win_pos.y;
 
 		
-		//GDI无抗锯齿
+		//GDI无抗锯齿,GDI+支持抗锯齿但是是C++
 		//TODO dxf 画圆
 		if (capture->cursor_aperture) {
 			{
@@ -121,6 +121,18 @@ static void draw_cursor(struct dc_capture *capture, HDC hdc, HWND window)
 				SelectObject(hdc, hBrush);
 				Ellipse(hdc, pos.x - 25, pos.y - 25, (pos.x + 25), (pos.y + 25));
 				//SelectObject(hdc, hOldBrush);
+				//{//图片绘制
+				//	HBITMAP hBitmap = (HBITMAP)LoadImage(NULL, TEXT("C:\\Users\\giga\\Pictures\\test1.bmp"), IMAGE_BITMAP, 50, 50, LR_DEFAULTCOLOR | LR_CREATEDIBSECTION | LR_LOADFROMFILE);
+				//	DWORD dwError = GetLastError();
+				//	HBRUSH hBrush = CreatePatternBrush(hBitmap);
+				//	HBRUSH hOldBrush = (HBRUSH)SelectObject(hdc, hBrush);
+
+				//	Rectangle(hdc, 100, 100, 200, 200);
+
+				//	SelectObject(hdc, hOldBrush);
+				//	DeleteObject(hOldBrush);
+				//	DeleteObject(hBitmap);
+				//}
 				DeleteObject(hBrush);
 				DeleteObject(hPen);
 			}
