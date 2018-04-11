@@ -171,7 +171,7 @@ static void duplicator_capture_tick(void *data, float seconds)
 	}
 
 	if (!!capture->duplicator) {
-		if (capture->capture_cursor)
+		if (capture->capture_cursor|| capture->cursor_aperture)//只显示光标也要鼠标捕获，因为需要鼠标位置信息
 			cursor_capture(&capture->cursor_data);
 
 		if (!gs_duplicator_update_frame(capture->duplicator)) {
