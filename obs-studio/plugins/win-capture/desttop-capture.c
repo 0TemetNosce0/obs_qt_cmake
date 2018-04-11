@@ -135,7 +135,7 @@ static void desktop_capture_defaults(obs_data_t *settings)
     obs_data_set_default_int(settings, "Height", 1000);
     obs_data_set_default_int(settings, "xPos", GetSystemMetrics(SM_CXSCREEN) / 2 - 300);
 	obs_data_set_default_int(settings, "yPos", GetSystemMetrics(SM_CYSCREEN) / 2 - 300);
-	obs_data_set_default_bool(settings, "capture_cursor", true);
+	obs_data_set_default_bool(settings, "capture_cursor", false);
 	obs_data_set_default_bool(settings, "compatibility", false);
     obs_data_set_default_int(settings, "moveMode",1);//设置默认值
 	obs_data_set_default_bool(settings, "cursor_aperture", true);//设置默认值

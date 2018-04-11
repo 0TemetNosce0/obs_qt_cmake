@@ -109,10 +109,41 @@ static void draw_cursor(struct dc_capture *capture, HDC hdc, HWND window)
         pos.x = ci->ptScreenPos.x - (int)ii.xHotspot - win_pos.x;
         pos.y = ci->ptScreenPos.y - (int)ii.yHotspot - win_pos.y;
 
-		
+        DrawIcon(hdc, pos.x, pos.y, icon);//绘制icon
+
+        DeleteObject(ii.hbmColor);
+        DeleteObject(ii.hbmMask);
+    }
+
+    DestroyIcon(icon);
+}
+static void cursor_or_aperture_draw(struct dc_capture *capture, HDC hdc, HWND window, bool cursor_aperture, bool capture_cursor)
+{
+	HICON      icon;
+	ICONINFO   ii;
+	CURSORINFO *ci = &capture->ci;
+	POINT      win_pos = { capture->x, capture->y };
+
+	if (!(capture->ci.flags & CURSOR_SHOWING))
+		return;
+
+	icon = CopyIcon(capture->ci.hCursor);
+	if (!icon)
+		return;
+
+	if (GetIconInfo(icon, &ii)) {
+		POINT pos;
+
+		if (window)
+			ClientToScreen(window, &win_pos);//将鼠标指针位置转换为窗口坐标
+
+		pos.x = ci->ptScreenPos.x - (int)ii.xHotspot - win_pos.x;
+		pos.y = ci->ptScreenPos.y - (int)ii.yHotspot - win_pos.y;
+
+
 		//GDI无抗锯齿,GDI+支持抗锯齿但是是C++
 		//TODO dxf 画圆
-		if (capture->cursor_aperture) {
+		if (cursor_aperture) {
 			{
 				HPEN hPen = CreatePen(PS_NULL, 1, RGB(0, 255, 0));
 				//将笔选入DC
@@ -142,12 +173,12 @@ static void draw_cursor(struct dc_capture *capture, HDC hdc, HWND window)
 				(HPEN)SelectObject(hdc, hPen);
 				//HBRUSH hBrush=CreateSolidBrush(RGB(0,255,0));
 				//画矩形
-	//            RECT rect;
-	//                    rect.bottom=pos.y+50;
-	//                    rect.left=pos.x+50;
-	//                    rect.right=pos.x;
-	//                    rect.top=pos.y;
-	//                    FillRect(hdc,&rect,hBrush);
+				//            RECT rect;
+				//                    rect.bottom=pos.y+50;
+				//                    rect.left=pos.x+50;
+				//                    rect.right=pos.x;
+				//                    rect.top=pos.y;
+				//                    FillRect(hdc,&rect,hBrush);
 				//画圆
 				Ellipse(hdc, pos.x - 25, pos.y - 25, (pos.x + 25), (pos.y + 25));
 				//DeleteObject(hBrush);
@@ -174,35 +205,35 @@ static void draw_cursor(struct dc_capture *capture, HDC hdc, HWND window)
 			}
 
 		}
-        //HWND my = GetForegroundWindow();
-        //RECT rect1;
-        //GetWindowRect(my, &rect1);
+		//HWND my = GetForegroundWindow();
+		//RECT rect1;
+		//GetWindowRect(my, &rect1);
 
-        //HPEN hPen = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
-        ////将笔选入DC
-        //(HPEN)SelectObject(hdc, hPen);
-        //HBRUSH hBrush = CreateSolidBrush(RGB(122, 122, 122));
-        ////画矩形
-        //RECT rect;
-        //rect.bottom = rect.bottom-250;
-        //rect.left = rect.left+180;
-        //rect.right = rect.right-180;
-        //rect.top = rect.top+70;
-        //FillRect(hdc, &rect, hBrush);
-        ////画圆
-        ////Ellipse(hdc,pos.x-25,pos.y-25,(pos.x+25),(pos.y+25));
-        //DeleteObject(hBrush);
-        //DeleteObject(hPen);
+		//HPEN hPen = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
+		////将笔选入DC
+		//(HPEN)SelectObject(hdc, hPen);
+		//HBRUSH hBrush = CreateSolidBrush(RGB(122, 122, 122));
+		////画矩形
+		//RECT rect;
+		//rect.bottom = rect.bottom-250;
+		//rect.left = rect.left+180;
+		//rect.right = rect.right-180;
+		//rect.top = rect.top+70;
+		//FillRect(hdc, &rect, hBrush);
+		////画圆
+		////Ellipse(hdc,pos.x-25,pos.y-25,(pos.x+25),(pos.y+25));
+		//DeleteObject(hBrush);
+		//DeleteObject(hPen);
+		if (capture_cursor) {
+			DrawIcon(hdc, pos.x, pos.y, icon);//绘制icon
+		}
 
-        DrawIcon(hdc, pos.x, pos.y, icon);//绘制icon
+		DeleteObject(ii.hbmColor);
+		DeleteObject(ii.hbmMask);
+	}
 
-        DeleteObject(ii.hbmColor);
-        DeleteObject(ii.hbmMask);
-    }
-
-    DestroyIcon(icon);
+	DestroyIcon(icon);
 }
-
 static inline HDC dc_capture_get_dc(struct dc_capture *capture)
 {
     if (!capture->valid)
@@ -230,10 +261,10 @@ void desktop_capture_capture(struct dc_capture *capture,int b)
     HDC hdc_target;
     HDC hdc;
 
-    if (capture->capture_cursor) {
+    if (capture->capture_cursor|| capture->cursor_aperture) {
         memset(&capture->ci, 0, sizeof(CURSORINFO));
         capture->ci.cbSize = sizeof(CURSORINFO);
-        capture->cursor_captured = GetCursorInfo(&capture->ci);
+        GetCursorInfo(&capture->ci);
     }
 
     if (++capture->cur_tex == capture->num_textures)
@@ -254,13 +285,16 @@ void desktop_capture_capture(struct dc_capture *capture,int b)
         hdc_target = GetDC(NULL);
         BitBlt(hdc, 0, 0, capture->width, capture->height,
                hdc_target, capture->x, capture->y, SRCCOPY);
-    if (capture->cursor_captured&&bDrawCursor)
-//        DrawIcon(hdc, capture->ci.ptScreenPos.x, capture->ci.ptScreenPos.y, capture->ci.hCursor);
-        draw_cursor(capture, hdc, GetDesktopWindow());
+		if (/*capture->cursor_captured&&*/bDrawCursor) {
+			//        DrawIcon(hdc, capture->ci.ptScreenPos.x, capture->ci.ptScreenPos.y, capture->ci.hCursor);
+			cursor_or_aperture_draw(capture, hdc, GetDesktopWindow(), capture->cursor_aperture, capture->capture_cursor);
+		}
     }
-	else if (b == 2) {
-		if (capture->cursor_captured && !capture->cursor_hidden)
-		    draw_cursor(capture, hdc, NULL);
+	else if (b == 2) {//正常
+		if (/*capture->cursor_captured &&*/ !capture->cursor_hidden) {
+			cursor_or_aperture_draw(capture, hdc, NULL, capture->cursor_aperture, capture->capture_cursor);
+		}
+			//draw_cursor(capture, hdc, NULL);
 		        hdc_target = GetDC(NULL);
 
 		        int xpos = capture->ci.ptScreenPos.x - capture->width / 2;
@@ -285,8 +319,10 @@ void desktop_capture_capture(struct dc_capture *capture,int b)
 		            {
 		                blog(LOG_WARNING, "[dc_capture_capture] Failed to get BitBlt");
 		            }
-		            if (capture->cursor_captured&&bDrawCursor)
-		                DrawIcon(hdc, capture->ci.ptScreenPos.x - xpos, capture->ci.ptScreenPos.y - ypos, capture->ci.hCursor);
+					if (/*capture->cursor_captured&&*/bDrawCursor) {
+						//DrawIcon(hdc, capture->ci.ptScreenPos.x - xpos, capture->ci.ptScreenPos.y - ypos, capture->ci.hCursor);
+						cursor_or_aperture_draw(capture, hdc, NULL, capture->cursor_aperture, capture->capture_cursor);
+					}
 		        }
 		        else
 		        {
@@ -316,9 +352,11 @@ void desktop_capture_capture(struct dc_capture *capture,int b)
             {
                 blog(LOG_WARNING, "[dc_capture_capture] Failed to get BitBlt");
             }
-            if (capture->cursor_captured&&bDrawCursor)
-                //                DrawIcon(hdc, capture->ci.ptScreenPos.x - capture->x, capture->ci.ptScreenPos.y - capture->y, capture->ci.hCursor);
-                draw_cursor(capture, hdc, GetDesktopWindow());
+			if (/*capture->cursor_captured&&*/bDrawCursor) {
+				//                DrawIcon(hdc, capture->ci.ptScreenPos.x - capture->x, capture->ci.ptScreenPos.y - capture->y, capture->ci.hCursor);
+				//draw_cursor(capture, hdc, GetDesktopWindow());
+				cursor_or_aperture_draw(capture, hdc, GetDesktopWindow(), capture->cursor_aperture, capture->capture_cursor);
+			}
         }
         else
         {
@@ -337,10 +375,10 @@ void dc_capture_capture(struct dc_capture *capture, HWND window)
     HDC hdc_target;
     HDC hdc;
 
-    if (capture->capture_cursor) {
+    if (capture->capture_cursor || capture->cursor_aperture) {
         memset(&capture->ci, 0, sizeof(CURSORINFO));
         capture->ci.cbSize = sizeof(CURSORINFO);
-        capture->cursor_captured = GetCursorInfo(&capture->ci);
+        GetCursorInfo(&capture->ci);
     }
 
     if (++capture->cur_tex == capture->num_textures)
@@ -360,8 +398,10 @@ void dc_capture_capture(struct dc_capture *capture, HWND window)
 
     ReleaseDC(NULL, hdc_target);
 
-    if (capture->cursor_captured && !capture->cursor_hidden)
-        draw_cursor(capture, hdc, window);
+	if (/*capture->cursor_captured && */!capture->cursor_hidden) {
+		//draw_cursor(capture, hdc, window);
+		cursor_or_aperture_draw(capture, hdc, window, capture->cursor_aperture, capture->capture_cursor);
+	}
 
     dc_capture_release_dc(capture);
 

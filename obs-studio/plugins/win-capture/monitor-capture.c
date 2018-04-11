@@ -12,6 +12,7 @@ struct monitor_capture {
 
 	int               monitor;
 	bool              capture_cursor;
+	bool              cursor_aperture;//鼠标光圈  true：显示
 	bool              compatibility;
 
 	struct dc_capture data;
@@ -72,7 +73,7 @@ static void update_monitor(struct monitor_capture *capture,
 
 	dc_capture_init(&capture->data, monitor.rect.left, monitor.rect.top,
 			width, height, capture->capture_cursor,
-			capture->compatibility,true);//TODO 光圈
+			capture->compatibility, capture->cursor_aperture);//TODO 光圈
 }
 
 static inline void update_settings(struct monitor_capture *capture,
@@ -81,7 +82,7 @@ static inline void update_settings(struct monitor_capture *capture,
 	capture->monitor        = (int)obs_data_get_int(settings, "monitor");
 	capture->capture_cursor = obs_data_get_bool(settings, "capture_cursor");
 	capture->compatibility  = obs_data_get_bool(settings, "compatibility");
-
+	capture->cursor_aperture = obs_data_get_bool(settings, "cursor_aperture");//
 	dc_capture_free(&capture->data);
 	update_monitor(capture, settings);
 }
@@ -110,6 +111,7 @@ static void monitor_capture_defaults(obs_data_t *settings)
 	obs_data_set_default_int(settings, "monitor", 0);
 	obs_data_set_default_bool(settings, "capture_cursor", true);
 	obs_data_set_default_bool(settings, "compatibility", false);
+	obs_data_set_default_bool(settings, "cursor_aperture", true);//设置默认值
 }
 
 static void monitor_capture_update(void *data, obs_data_t *settings)

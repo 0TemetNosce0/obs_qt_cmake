@@ -22,7 +22,7 @@ struct dc_capture {
 	BYTE         *bits;
 
 	bool         capture_cursor;
-	bool         cursor_captured;
+	//bool         cursor_captured;
 	bool         cursor_hidden;
 	bool         cursor_aperture;//TODO π‚»¶
 	CURSORINFO   ci;
