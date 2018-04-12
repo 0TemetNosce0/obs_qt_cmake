@@ -77,9 +77,9 @@ bool obs_module_load(void)
 
     obs_enter_graphics();
     //TODO dxf win8以下使用的是dc，win8及以上使用的是directx。
-    if (win8_or_above && gs_get_device_type() == GS_DEVICE_DIRECT3D_11)
-		obs_register_source(&duplicator_capture_info);
-    else
+  //  if (win8_or_above && gs_get_device_type() == GS_DEVICE_DIRECT3D_11)
+		//obs_register_source(&duplicator_capture_info);
+  //  else
 		obs_register_source(&monitor_capture_info);//使用dc,dxgi win8以上才支持，
 
     obs_leave_graphics();

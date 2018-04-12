@@ -1,6 +1,6 @@
 #include <util/dstr.h>
 #include "dc-capture.h"
-
+#include "cursor-capture.h"
 #define TEXT_MONITOR_CAPTURE obs_module_text("MonitorCapture")
 #define TEXT_CAPTURE_CURSOR  obs_module_text("CaptureCursor")
 #define TEXT_COMPATIBILITY   obs_module_text("Compatibility")
@@ -14,7 +14,7 @@ struct monitor_capture {
 	bool              capture_cursor;
 	bool              cursor_aperture;//鼠标光圈  true：显示
 	bool              compatibility;
-
+	struct cursor_data             cursor_data;
 	struct dc_capture data;
 };
 
@@ -141,17 +141,32 @@ static void monitor_capture_tick(void *data, float seconds)
 
 	obs_enter_graphics();
 	dc_capture_capture(&capture->data, NULL);
+	if (capture->capture_cursor || capture->cursor_aperture) {//只显示光标也要鼠标捕获，因为需要鼠标位置信息
+		cursor_capture(&capture->cursor_data);
+	}
 	obs_leave_graphics();
 
 	UNUSED_PARAMETER(seconds);
 }
-
+static void draw_cursor(struct monitor_capture *capture, struct dc_capture *data)
+{
+	cursor_or_aperture_draw(&capture->cursor_data,
+		-data->x, -data->y,
+		1.0f, 1.0f,
+		data->width, data->height,
+		capture->cursor_aperture, capture->capture_cursor);
+}
 static void monitor_capture_render(void *data, gs_effect_t *effect)
 {
 	struct monitor_capture *capture = data;
 	dc_capture_render(&capture->data,
 			obs_get_base_effect(OBS_EFFECT_OPAQUE));
-
+	if (capture->capture_cursor || capture->cursor_aperture) {
+		effect = obs_get_base_effect(OBS_EFFECT_DEFAULT);
+		while (gs_effect_loop(effect, "Draw")) {
+			draw_cursor(capture, &capture->data);
+		}
+	}
 	UNUSED_PARAMETER(effect);
 }
 

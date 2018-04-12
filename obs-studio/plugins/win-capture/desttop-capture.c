@@ -1,5 +1,6 @@
 ﻿#include <util/dstr.h>
 #include "dc-capture.h"
+#include "cursor-capture.h"
 /************
 区域录制。
 ----------------------------
@@ -31,7 +32,7 @@ struct desktop_capture {
     int               height;
     int                 xPos;
     int                 yPos;
-
+	struct cursor_data             cursor_data;
     struct dc_capture data;//dc捕获结构�?。
 };
 
@@ -167,17 +168,34 @@ static void desktop_capture_tick(void *data, float seconds)
 		return;
 
 	obs_enter_graphics();
-    desktop_capture_capture(&capture->data,capture->moveMode);
+	desktop_capture_capture(&capture->data, capture->moveMode);
+	if (capture->capture_cursor || capture->cursor_aperture) {//只显示光标也要鼠标捕获，因为需要鼠标位置信息
+		cursor_capture(&capture->cursor_data);
+	}
 	obs_leave_graphics();
 
 	UNUSED_PARAMETER(seconds);
 }
-
+static void draw_cursor(struct desktop_capture *capture)
+{
+	cursor_or_aperture_draw(&capture->cursor_data,
+		-capture->xPos, -capture->yPos,
+		1.0f, 1.0f,
+		capture->width ,capture->height, 
+		capture->cursor_aperture, capture->capture_cursor);
+}
 static void desktop_capture_render(void *data, gs_effect_t *effect)
 {
 	struct desktop_capture *capture = data;
 	
 	dc_capture_render(&capture->data, obs_get_base_effect(OBS_EFFECT_OPAQUE));
+
+	if (capture->capture_cursor || capture->cursor_aperture) {
+		effect = obs_get_base_effect(OBS_EFFECT_DEFAULT);
+		while (gs_effect_loop(effect, "Draw")) {
+			draw_cursor(capture);
+		}
+	}
 
 	UNUSED_PARAMETER(effect);
 }

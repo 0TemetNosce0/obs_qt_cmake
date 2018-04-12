@@ -285,15 +285,15 @@ void desktop_capture_capture(struct dc_capture *capture,int b)
         hdc_target = GetDC(NULL);
         BitBlt(hdc, 0, 0, capture->width, capture->height,
                hdc_target, capture->x, capture->y, SRCCOPY);
-		if (/*capture->cursor_captured&&*/bDrawCursor) {
-			//        DrawIcon(hdc, capture->ci.ptScreenPos.x, capture->ci.ptScreenPos.y, capture->ci.hCursor);
-			cursor_or_aperture_draw(capture, hdc, GetDesktopWindow(), capture->cursor_aperture, capture->capture_cursor);
-		}
+		//if (/*capture->cursor_captured&&*/bDrawCursor) {
+		//	//        DrawIcon(hdc, capture->ci.ptScreenPos.x, capture->ci.ptScreenPos.y, capture->ci.hCursor);
+		//	cursor_or_aperture_draw(capture, hdc, GetDesktopWindow(), capture->cursor_aperture, capture->capture_cursor);
+		//}
     }
 	else if (b == 2) {//正常
-		if (/*capture->cursor_captured &&*/ !capture->cursor_hidden) {
-			cursor_or_aperture_draw(capture, hdc, NULL, capture->cursor_aperture, capture->capture_cursor);
-		}
+		//if (/*capture->cursor_captured &&*/ !capture->cursor_hidden) {
+		//	cursor_or_aperture_draw(capture, hdc, NULL, capture->cursor_aperture, capture->capture_cursor);
+		//}
 			//draw_cursor(capture, hdc, NULL);
 		        hdc_target = GetDC(NULL);
 
@@ -319,10 +319,10 @@ void desktop_capture_capture(struct dc_capture *capture,int b)
 		            {
 		                blog(LOG_WARNING, "[dc_capture_capture] Failed to get BitBlt");
 		            }
-					if (/*capture->cursor_captured&&*/bDrawCursor) {
-						//DrawIcon(hdc, capture->ci.ptScreenPos.x - xpos, capture->ci.ptScreenPos.y - ypos, capture->ci.hCursor);
-						cursor_or_aperture_draw(capture, hdc, NULL, capture->cursor_aperture, capture->capture_cursor);
-					}
+					//if (/*capture->cursor_captured&&*/bDrawCursor) {
+					//	//DrawIcon(hdc, capture->ci.ptScreenPos.x - xpos, capture->ci.ptScreenPos.y - ypos, capture->ci.hCursor);
+					//	cursor_or_aperture_draw(capture, hdc, NULL, capture->cursor_aperture, capture->capture_cursor);
+					//}
 		        }
 		        else
 		        {
@@ -352,11 +352,11 @@ void desktop_capture_capture(struct dc_capture *capture,int b)
             {
                 blog(LOG_WARNING, "[dc_capture_capture] Failed to get BitBlt");
             }
-			if (/*capture->cursor_captured&&*/bDrawCursor) {
-				//                DrawIcon(hdc, capture->ci.ptScreenPos.x - capture->x, capture->ci.ptScreenPos.y - capture->y, capture->ci.hCursor);
-				//draw_cursor(capture, hdc, GetDesktopWindow());
-				cursor_or_aperture_draw(capture, hdc, GetDesktopWindow(), capture->cursor_aperture, capture->capture_cursor);
-			}
+			//if (/*capture->cursor_captured&&*/bDrawCursor) {
+			//	//                DrawIcon(hdc, capture->ci.ptScreenPos.x - capture->x, capture->ci.ptScreenPos.y - capture->y, capture->ci.hCursor);
+			//	//draw_cursor(capture, hdc, GetDesktopWindow());
+			//	cursor_or_aperture_draw(capture, hdc, GetDesktopWindow(), capture->cursor_aperture, capture->capture_cursor);
+			//}
         }
         else
         {
@@ -398,10 +398,10 @@ void dc_capture_capture(struct dc_capture *capture, HWND window)
 
     ReleaseDC(NULL, hdc_target);
 
-	if (/*capture->cursor_captured && */!capture->cursor_hidden) {
-		//draw_cursor(capture, hdc, window);
-		cursor_or_aperture_draw(capture, hdc, window, capture->cursor_aperture, capture->capture_cursor);
-	}
+	//if (/*capture->cursor_captured && */!capture->cursor_hidden) {
+	//	//draw_cursor(capture, hdc, window);
+	//	cursor_or_aperture_draw(capture, hdc, window, capture->cursor_aperture, capture->capture_cursor);
+	//}
 
     dc_capture_release_dc(capture);
 

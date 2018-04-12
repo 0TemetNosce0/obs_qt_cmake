@@ -309,6 +309,7 @@ void cursor_or_aperture_draw(struct cursor_data *data, long x_offset, long y_off
 		}
 	}
 }
+
 void cursor_data_free(struct cursor_data *data)
 {
 	for (size_t i = 0; i < data->cached_textures.num; i++) {
