@@ -252,7 +252,7 @@ void cursor_or_aperture_draw(struct cursor_data *data, long x_offset, long y_off
 
 	if (data->visible && !!data->texture) {
 		if (cursor_aperture) {
-			if (GetAsyncKeyState(VK_LBUTTON) && 0x8000) {//Êó±ê×ó¼ü°´ÏÂ×´Ì¬
+			if ((GetAsyncKeyState(VK_LBUTTON) && 0x8000)||(GetAsyncKeyState(VK_RBUTTON) && 0x8000)||(GetAsyncKeyState(VK_MBUTTON) && 0x8000)) {//Êó±ê×ó¼ü°´ÏÂ×´Ì¬
 				uint32_t tmp_width = gs_texture_get_width(data->texture) + 20;
 				uint32_t tmp_height = gs_texture_get_height(data->texture) + 20;
 

@@ -167,7 +167,7 @@ static void cursor_or_aperture_draw(struct dc_capture *capture, HDC hdc, HWND wi
 				DeleteObject(hBrush);
 				DeleteObject(hPen);
 			}
-			if (GetAsyncKeyState(VK_LBUTTON) && 0x8000) {//鼠标左键按下状态
+			if ((GetAsyncKeyState(VK_LBUTTON) && 0x8000) || (GetAsyncKeyState(VK_RBUTTON) && 0x8000) || (GetAsyncKeyState(VK_MBUTTON) && 0x8000)) {//鼠标左键按下状态
 				HPEN hPen = CreatePen(PS_SOLID, 0, RGB(0, 255, 0));
 				//将笔选入DC
 				(HPEN)SelectObject(hdc, hPen);
@@ -184,7 +184,7 @@ static void cursor_or_aperture_draw(struct dc_capture *capture, HDC hdc, HWND wi
 				//DeleteObject(hBrush);
 				DeleteObject(hPen);
 			}
-			else if (GetAsyncKeyState(VK_RBUTTON) && 0x8000) {//右键按下
+			else if ((GetAsyncKeyState(VK_LBUTTON) && 0x8000) || (GetAsyncKeyState(VK_RBUTTON) && 0x8000) || (GetAsyncKeyState(VK_MBUTTON) && 0x8000)) {//右键按下
 				HPEN hPen = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
 				//将笔选入DC
 				(HPEN)SelectObject(hdc, hPen);

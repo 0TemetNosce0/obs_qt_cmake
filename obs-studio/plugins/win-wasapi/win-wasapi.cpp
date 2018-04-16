@@ -119,6 +119,7 @@ inline void WASAPISource::Stop()
 
 inline WASAPISource::~WASAPISource()
 {
+	blog(LOG_INFO, "stop ~WASAPISource");
 	Stop();
 }
 
@@ -134,8 +135,11 @@ void WASAPISource::Update(obs_data_t *settings)
 	string newDevice = obs_data_get_string(settings, OPT_DEVICE_ID);
 	bool restart = newDevice.compare(device_id) != 0;
 
-	if (restart)
+	if (restart) {
+		blog(LOG_INFO, "stop Update");
+
 		Stop();
+	}
 
 	UpdateSettings(settings);
 
@@ -459,7 +463,7 @@ DWORD WINAPI WASAPISource::CaptureThread(LPVOID param)
 			break;
 		}
 	}
-
+	blog(LOG_INFO, "stop source->client->Stop()");
 	source->client->Stop();
 
 	source->captureThread = nullptr;
