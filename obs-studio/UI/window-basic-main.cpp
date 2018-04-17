@@ -2546,7 +2546,7 @@ void OBSBasic::DrawBackdrop(float cx, float cy)
     gs_technique_t *tech  = gs_effect_get_technique(solid, "Solid");
 
     vec4 colorVal;
-    vec4_set(&colorVal, 0.0f, 0.0f, 0.0f, 1.0f);
+    vec4_set(&colorVal, 1.0f, 0.0f, 0.0f, 1.0f);//显示画面的背景色
     gs_effect_set_vec4(color, &colorVal);
 
     gs_technique_begin(tech);
