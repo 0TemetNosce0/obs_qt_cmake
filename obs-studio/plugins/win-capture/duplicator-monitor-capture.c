@@ -270,10 +270,14 @@ static void duplicator_capture_render(void *data, gs_effect_t *effect)
 	//	}
 	//}
 }
-
-static bool get_monitor_props(obs_property_t *monitor_list, int monitor_idx)
+//TODO:20180419 修改返回属性宽高，坐标点。多屏的时候需要这些。
+static bool get_monitor_props(obs_property_t *monitor_list, obs_property_t *monitor_pos_x, obs_property_t *monitor_pos_y, obs_property_t *monitor_width,obs_property_t *monitor_height,int monitor_idx)
 {
 	struct dstr monitor_desc = {0};
+	struct dstr monitor_desc_pos_x = { 0 };
+	struct dstr monitor_desc_pos_y = { 0 };
+	struct dstr monitor_desc_width = { 0 };
+	struct dstr monitor_desc_height = { 0 };
 	struct gs_monitor_info info;
 
 	if (!gs_get_duplicator_monitor_info(monitor_idx, &info))
@@ -282,12 +286,18 @@ static bool get_monitor_props(obs_property_t *monitor_list, int monitor_idx)
 	dstr_catf(&monitor_desc, "%s %d: %ldx%ld @ %ld,%ld",
 			TEXT_MONITOR, monitor_idx,
 			info.cx, info.cy, info.x, info.y);
+	obs_property_list_add_int(monitor_list, monitor_desc.array,monitor_idx);
 
-	obs_property_list_add_int(monitor_list, monitor_desc.array,
-			monitor_idx);
+	obs_property_list_add_int(monitor_pos_x, "monitor_pos_x_name", info.x);
+	obs_property_list_add_int(monitor_pos_y,"monitor_pos_y_name", info.y);
+	obs_property_list_add_int(monitor_width, "monitor_width_name", info.cx);
+	obs_property_list_add_int(monitor_height, "monitor_height_name", info.cy);
 
 	dstr_free(&monitor_desc);
-
+	dstr_free(&monitor_desc_pos_x);
+	dstr_free(&monitor_desc_pos_y);
+	dstr_free(&monitor_desc_width);
+	dstr_free(&monitor_desc_height);
 	return true;
 }
 
@@ -302,12 +312,19 @@ static obs_properties_t *duplicator_capture_properties(void *unused)
 	obs_property_t *monitors = obs_properties_add_list(props,
 		"monitor", TEXT_MONITOR,
 		OBS_COMBO_TYPE_LIST, OBS_COMBO_FORMAT_INT);
-
+	obs_property_t *monitors_pos_x = obs_properties_add_list(props,
+		"monitor_pos_x", "monitors_pos_x_text",OBS_COMBO_TYPE_LIST, OBS_COMBO_FORMAT_INT);//左上角坐标点
+	obs_property_t *monitors_pos_y = obs_properties_add_list(props,
+		"monitor_pos_y", "monitors_pos_y_text", OBS_COMBO_TYPE_LIST, OBS_COMBO_FORMAT_INT);//左上角坐标点
+	obs_property_t *monitors_width = obs_properties_add_list(props,
+		"monitor_width", "monitors_width_text", OBS_COMBO_TYPE_LIST, OBS_COMBO_FORMAT_INT);
+	obs_property_t *monitors_height = obs_properties_add_list(props,
+		"monitor_height", "monitors_height_text", OBS_COMBO_TYPE_LIST, OBS_COMBO_FORMAT_INT);
 	obs_properties_add_bool(props, "capture_cursor", TEXT_CAPTURE_CURSOR);
-
+	
 	obs_enter_graphics();
 
-	while (get_monitor_props(monitors, monitor_idx++));
+	while (get_monitor_props(monitors, monitors_pos_x, monitors_pos_y,monitors_width, monitors_height,monitor_idx++ ));
 
 	obs_leave_graphics();
 
